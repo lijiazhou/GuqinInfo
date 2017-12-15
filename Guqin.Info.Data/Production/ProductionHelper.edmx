@@ -1,0 +1,921 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Guqin.Info.Data.Production.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="accountstatus">
+          <Key>
+            <PropertyRef Name="idaccountStatus" />
+          </Key>
+          <Property Name="idaccountStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="accounttype">
+          <Key>
+            <PropertyRef Name="userTypeId" />
+          </Key>
+          <Property Name="userTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userType" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.guqininfo.acheivement' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="acheivement">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="acheivedTime" />
+            <PropertyRef Name="useraccount" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="desc" Type="varchar" MaxLength="200" />
+          <Property Name="acheivedTime" Type="date" Nullable="false" />
+          <Property Name="useraccount" Type="int" Nullable="false" />
+          <Property Name="photo" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="business">
+          <Key>
+            <PropertyRef Name="userAccount" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="foundTime" Type="date" Nullable="false" />
+          <Property Name="despc" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="owner" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="logo" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="userAccount" Type="int" Nullable="false" />
+          <Property Name="businessType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="businesstype">
+          <Key>
+            <PropertyRef Name="idbusinessType" />
+          </Key>
+          <Property Name="idbusinessType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="buisnessType" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="certificate">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="acheivedTime" />
+            <PropertyRef Name="userAccount" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="desc" Type="varchar" MaxLength="200" />
+          <Property Name="acheivedTime" Type="date" Nullable="false" />
+          <Property Name="userAccount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="major">
+          <Key>
+            <PropertyRef Name="idMajor" />
+          </Key>
+          <Property Name="idMajor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="majorName" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="idPorduct" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="madeTime" Type="date" Nullable="false" />
+          <Property Name="deleted" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="business_userAccount" Type="int" Nullable="false" />
+          <Property Name="stringType_idstringType" Type="int" Nullable="false" />
+          <Property Name="idPorduct" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productphoto">
+          <Key>
+            <PropertyRef Name="idProductPhoto" />
+          </Key>
+          <Property Name="idProductPhoto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductPhoto" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="product_idPorduct" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stringtype">
+          <Key>
+            <PropertyRef Name="idstringType" />
+          </Key>
+          <Property Name="idstringType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stringType" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="userAccount" />
+          </Key>
+          <Property Name="userAccount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="userAccount" />
+          </Key>
+          <Property Name="userAccount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userAccount" />
+          </Key>
+          <Property Name="firstName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="fullName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="birthday" Type="date" Nullable="false" />
+          <Property Name="headprotrait" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="userAccount" Type="int" Nullable="false" />
+          <Property Name="expYear" Type="date" Nullable="false" />
+          <Property Name="major" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="useraccount">
+          <Key>
+            <PropertyRef Name="idUserAccount" />
+          </Key>
+          <Property Name="idUserAccount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="registeredphonenum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="latitude" Type="double" Nullable="false" />
+          <Property Name="langtitude" Type="double" Nullable="false" />
+          <Property Name="accountType" Type="int" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="accountStatus" Type="int" Nullable="false" />
+          <Property Name="photo" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_acheivement_useraccount1">
+          <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
+          <End Role="acheivement" Type="Self.acheivement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="useraccount">
+              <PropertyRef Name="idUserAccount" />
+            </Principal>
+            <Dependent Role="acheivement">
+              <PropertyRef Name="useraccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_business_businessType1">
+          <End Role="businesstype" Type="Self.businesstype" Multiplicity="1" />
+          <End Role="business" Type="Self.business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="businesstype">
+              <PropertyRef Name="idbusinessType" />
+            </Principal>
+            <Dependent Role="business">
+              <PropertyRef Name="businessType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_business_useraccount1">
+          <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
+          <End Role="business" Type="Self.business" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="useraccount">
+              <PropertyRef Name="idUserAccount" />
+            </Principal>
+            <Dependent Role="business">
+              <PropertyRef Name="userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_certificate_user1">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="certificate" Type="Self.certificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userAccount" />
+            </Principal>
+            <Dependent Role="certificate">
+              <PropertyRef Name="userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_product_business1">
+          <End Role="business" Type="Self.business" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="business">
+              <PropertyRef Name="userAccount" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="business_userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_product_stringType1">
+          <End Role="stringtype" Type="Self.stringtype" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stringtype">
+              <PropertyRef Name="idstringType" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="stringType_idstringType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ProductPhoto_product1">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="productphoto" Type="Self.productphoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="idPorduct" />
+            </Principal>
+            <Dependent Role="productphoto">
+              <PropertyRef Name="product_idPorduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_student_user1">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userAccount" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_teacher_user1">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="teacher" Type="Self.teacher" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userAccount" />
+            </Principal>
+            <Dependent Role="teacher">
+              <PropertyRef Name="userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_major1">
+          <End Role="major" Type="Self.major" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="major">
+              <PropertyRef Name="idMajor" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="major" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_useraccount1">
+          <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="useraccount">
+              <PropertyRef Name="idUserAccount" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_useraccount_accountStatus1">
+          <End Role="accountstatus" Type="Self.accountstatus" Multiplicity="1" />
+          <End Role="useraccount" Type="Self.useraccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accountstatus">
+              <PropertyRef Name="idaccountStatus" />
+            </Principal>
+            <Dependent Role="useraccount">
+              <PropertyRef Name="accountStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_useraccount_accounttype1">
+          <End Role="accounttype" Type="Self.accounttype" Multiplicity="1" />
+          <End Role="useraccount" Type="Self.useraccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounttype">
+              <PropertyRef Name="userTypeId" />
+            </Principal>
+            <Dependent Role="useraccount">
+              <PropertyRef Name="accountType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GuqinInfoDataProductionStoreContainer">
+          <EntitySet Name="accountstatus" EntityType="Self.accountstatus" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="accounttype" EntityType="Self.accounttype" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="business" EntityType="Self.business" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="businesstype" EntityType="Self.businesstype" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="major" EntityType="Self.major" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="productphoto" EntityType="Self.productphoto" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="stringtype" EntityType="Self.stringtype" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="teacher" EntityType="Self.teacher" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="useraccount" EntityType="Self.useraccount" Schema="guqininfo" store:Type="Tables" />
+          <EntitySet Name="acheivement" EntityType="Self.acheivement" store:Type="Tables" store:Schema="guqininfo">
+            <DefiningQuery>SELECT
+`acheivement`.`name`, 
+`acheivement`.`desc`, 
+`acheivement`.`acheivedTime`, 
+`acheivement`.`useraccount`, 
+`acheivement`.`photo`
+FROM `acheivement` AS `acheivement`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="certificate" EntityType="Self.certificate" store:Type="Tables" store:Schema="guqininfo">
+            <DefiningQuery>SELECT
+`certificate`.`name`, 
+`certificate`.`desc`, 
+`certificate`.`acheivedTime`, 
+`certificate`.`userAccount`
+FROM `certificate` AS `certificate`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_acheivement_useraccount1" Association="Self.fk_acheivement_useraccount1">
+            <End Role="useraccount" EntitySet="useraccount" />
+            <End Role="acheivement" EntitySet="acheivement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_business_businessType1" Association="Self.fk_business_businessType1">
+            <End Role="businesstype" EntitySet="businesstype" />
+            <End Role="business" EntitySet="business" />
+          </AssociationSet>
+          <AssociationSet Name="fk_business_useraccount1" Association="Self.fk_business_useraccount1">
+            <End Role="useraccount" EntitySet="useraccount" />
+            <End Role="business" EntitySet="business" />
+          </AssociationSet>
+          <AssociationSet Name="fk_certificate_user1" Association="Self.fk_certificate_user1">
+            <End Role="user" EntitySet="user" />
+            <End Role="certificate" EntitySet="certificate" />
+          </AssociationSet>
+          <AssociationSet Name="fk_product_business1" Association="Self.fk_product_business1">
+            <End Role="business" EntitySet="business" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="fk_product_stringType1" Association="Self.fk_product_stringType1">
+            <End Role="stringtype" EntitySet="stringtype" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ProductPhoto_product1" Association="Self.fk_ProductPhoto_product1">
+            <End Role="product" EntitySet="product" />
+            <End Role="productphoto" EntitySet="productphoto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_student_user1" Association="Self.fk_student_user1">
+            <End Role="user" EntitySet="user" />
+            <End Role="student" EntitySet="student" />
+          </AssociationSet>
+          <AssociationSet Name="fk_teacher_user1" Association="Self.fk_teacher_user1">
+            <End Role="user" EntitySet="user" />
+            <End Role="teacher" EntitySet="teacher" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_major1" Association="Self.fk_user_major1">
+            <End Role="major" EntitySet="major" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_useraccount1" Association="Self.fk_user_useraccount1">
+            <End Role="useraccount" EntitySet="useraccount" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="fk_useraccount_accountStatus1" Association="Self.fk_useraccount_accountStatus1">
+            <End Role="accountstatus" EntitySet="accountstatus" />
+            <End Role="useraccount" EntitySet="useraccount" />
+          </AssociationSet>
+          <AssociationSet Name="fk_useraccount_accounttype1" Association="Self.fk_useraccount_accounttype1">
+            <End Role="accounttype" EntitySet="accounttype" />
+            <End Role="useraccount" EntitySet="useraccount" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Guqin.Info.Data.Production" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="accountstatu">
+          <Key>
+            <PropertyRef Name="idaccountStatus" />
+          </Key>
+          <Property Name="idaccountStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="useraccounts" Relationship="Self.fk_useraccount_accountStatus1" FromRole="accountstatus" ToRole="useraccount" />
+        </EntityType>
+        <EntityType Name="accounttype">
+          <Key>
+            <PropertyRef Name="userTypeId" />
+          </Key>
+          <Property Name="userTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="useraccounts" Relationship="Self.fk_useraccount_accounttype1" FromRole="accounttype" ToRole="useraccount" />
+        </EntityType>
+        <EntityType Name="business">
+          <Key>
+            <PropertyRef Name="userAccount" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="foundTime" Type="DateTime" Nullable="false" />
+          <Property Name="despc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="owner" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="logo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userAccount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="businesstype" Relationship="Self.fk_business_businessType1" FromRole="business" ToRole="businesstype" />
+          <NavigationProperty Name="useraccount1" Relationship="Self.fk_business_useraccount1" FromRole="business" ToRole="useraccount" />
+          <NavigationProperty Name="products" Relationship="Self.fk_product_business1" FromRole="business" ToRole="product" />
+        </EntityType>
+        <EntityType Name="businesstype">
+          <Key>
+            <PropertyRef Name="idbusinessType" />
+          </Key>
+          <Property Name="idbusinessType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="buisnessType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="businesses" Relationship="Self.fk_business_businessType1" FromRole="businesstype" ToRole="business" />
+        </EntityType>
+        <EntityType Name="major">
+          <Key>
+            <PropertyRef Name="idMajor" />
+          </Key>
+          <Property Name="idMajor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="majorName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="Self.fk_user_major1" FromRole="major" ToRole="user" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="idPorduct" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="madeTime" Type="DateTime" Nullable="false" />
+          <Property Name="deleted" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idPorduct" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="business" Relationship="Self.fk_product_business1" FromRole="product" ToRole="business" />
+          <NavigationProperty Name="stringtype" Relationship="Self.fk_product_stringType1" FromRole="product" ToRole="stringtype" />
+          <NavigationProperty Name="productphotoes" Relationship="Self.fk_ProductPhoto_product1" FromRole="product" ToRole="productphoto" />
+        </EntityType>
+        <EntityType Name="productphoto">
+          <Key>
+            <PropertyRef Name="idProductPhoto" />
+          </Key>
+          <Property Name="idProductPhoto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductPhoto1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="product" Relationship="Self.fk_ProductPhoto_product1" FromRole="productphoto" ToRole="product" />
+        </EntityType>
+        <EntityType Name="stringtype">
+          <Key>
+            <PropertyRef Name="idstringType" />
+          </Key>
+          <Property Name="idstringType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stringType1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="products" Relationship="Self.fk_product_stringType1" FromRole="stringtype" ToRole="product" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="userAccount" />
+          </Key>
+          <Property Name="userAccount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.fk_student_user1" FromRole="student" ToRole="user" />
+        </EntityType>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="userAccount" />
+          </Key>
+          <Property Name="userAccount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.fk_teacher_user1" FromRole="teacher" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userAccount" />
+          </Key>
+          <Property Name="firstName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fullName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" />
+          <Property Name="headprotrait" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userAccount" Type="Int32" Nullable="false" />
+          <Property Name="expYear" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="major" Relationship="Self.fk_user_major1" FromRole="user" ToRole="major" />
+          <NavigationProperty Name="student" Relationship="Self.fk_student_user1" FromRole="user" ToRole="student" />
+          <NavigationProperty Name="teacher" Relationship="Self.fk_teacher_user1" FromRole="user" ToRole="teacher" />
+          <NavigationProperty Name="certificates" Relationship="Self.fk_certificate_user1" FromRole="user" ToRole="certificate" />
+          <NavigationProperty Name="useraccount1" Relationship="Self.fk_user_useraccount1" FromRole="user" ToRole="useraccount" />
+        </EntityType>
+        <EntityType Name="useraccount">
+          <Key>
+            <PropertyRef Name="idUserAccount" />
+          </Key>
+          <Property Name="idUserAccount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="registeredphonenum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitude" Type="Double" Nullable="false" />
+          <Property Name="langtitude" Type="Double" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="accountstatu" Relationship="Self.fk_useraccount_accountStatus1" FromRole="useraccount" ToRole="accountstatus" />
+          <NavigationProperty Name="accounttype" Relationship="Self.fk_useraccount_accounttype1" FromRole="useraccount" ToRole="accounttype" />
+          <NavigationProperty Name="business" Relationship="Self.fk_business_useraccount1" FromRole="useraccount" ToRole="business" />
+          <NavigationProperty Name="user" Relationship="Self.fk_user_useraccount1" FromRole="useraccount" ToRole="user" />
+          <NavigationProperty Name="acheivements" Relationship="Self.fk_acheivement_useraccount1" FromRole="useraccount" ToRole="acheivement" />
+        </EntityType>
+        <EntityType Name="acheivement">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="acheivedTime" />
+            <PropertyRef Name="useraccount" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="acheivedTime" Type="DateTime" Nullable="false" />
+          <Property Name="useraccount" Type="Int32" Nullable="false" />
+          <Property Name="photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="useraccount1" Relationship="Self.fk_acheivement_useraccount1" FromRole="acheivement" ToRole="useraccount" />
+        </EntityType>
+        <EntityType Name="certificate">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="acheivedTime" />
+            <PropertyRef Name="userAccount" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="acheivedTime" Type="DateTime" Nullable="false" />
+          <Property Name="userAccount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.fk_certificate_user1" FromRole="certificate" ToRole="user" />
+        </EntityType>
+        <Association Name="fk_useraccount_accountStatus1">
+          <End Role="accountstatus" Type="Self.accountstatu" Multiplicity="1" />
+          <End Role="useraccount" Type="Self.useraccount" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_useraccount_accounttype1">
+          <End Role="accounttype" Type="Self.accounttype" Multiplicity="1" />
+          <End Role="useraccount" Type="Self.useraccount" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_business_businessType1">
+          <End Role="businesstype" Type="Self.businesstype" Multiplicity="1" />
+          <End Role="business" Type="Self.business" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_business_useraccount1">
+          <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
+          <End Role="business" Type="Self.business" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="useraccount">
+              <PropertyRef Name="idUserAccount" />
+            </Principal>
+            <Dependent Role="business">
+              <PropertyRef Name="userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_product_business1">
+          <End Role="business" Type="Self.business" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_user_major1">
+          <End Role="major" Type="Self.major" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_product_stringType1">
+          <End Role="stringtype" Type="Self.stringtype" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_ProductPhoto_product1">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="productphoto" Type="Self.productphoto" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_student_user1">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userAccount" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_teacher_user1">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="teacher" Type="Self.teacher" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userAccount" />
+            </Principal>
+            <Dependent Role="teacher">
+              <PropertyRef Name="userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_certificate_user1">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="certificate" Type="Self.certificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userAccount" />
+            </Principal>
+            <Dependent Role="certificate">
+              <PropertyRef Name="userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_useraccount1">
+          <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="useraccount">
+              <PropertyRef Name="idUserAccount" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_acheivement_useraccount1">
+          <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
+          <End Role="acheivement" Type="Self.acheivement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="useraccount">
+              <PropertyRef Name="idUserAccount" />
+            </Principal>
+            <Dependent Role="acheivement">
+              <PropertyRef Name="useraccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProductionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accountstatus" EntityType="Self.accountstatu" />
+          <EntitySet Name="accounttypes" EntityType="Self.accounttype" />
+          <EntitySet Name="businesses" EntityType="Self.business" />
+          <EntitySet Name="businesstypes" EntityType="Self.businesstype" />
+          <EntitySet Name="majors" EntityType="Self.major" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="productphotoes" EntityType="Self.productphoto" />
+          <EntitySet Name="stringtypes" EntityType="Self.stringtype" />
+          <EntitySet Name="students" EntityType="Self.student" />
+          <EntitySet Name="teachers" EntityType="Self.teacher" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="useraccounts" EntityType="Self.useraccount" />
+          <EntitySet Name="acheivements" EntityType="Self.acheivement" />
+          <EntitySet Name="certificates" EntityType="Self.certificate" />
+          <AssociationSet Name="fk_useraccount_accountStatus1" Association="Self.fk_useraccount_accountStatus1">
+            <End Role="accountstatus" EntitySet="accountstatus" />
+            <End Role="useraccount" EntitySet="useraccounts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_useraccount_accounttype1" Association="Self.fk_useraccount_accounttype1">
+            <End Role="accounttype" EntitySet="accounttypes" />
+            <End Role="useraccount" EntitySet="useraccounts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_business_businessType1" Association="Self.fk_business_businessType1">
+            <End Role="businesstype" EntitySet="businesstypes" />
+            <End Role="business" EntitySet="businesses" />
+          </AssociationSet>
+          <AssociationSet Name="fk_business_useraccount1" Association="Self.fk_business_useraccount1">
+            <End Role="useraccount" EntitySet="useraccounts" />
+            <End Role="business" EntitySet="businesses" />
+          </AssociationSet>
+          <AssociationSet Name="fk_product_business1" Association="Self.fk_product_business1">
+            <End Role="business" EntitySet="businesses" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_major1" Association="Self.fk_user_major1">
+            <End Role="major" EntitySet="majors" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="fk_product_stringType1" Association="Self.fk_product_stringType1">
+            <End Role="stringtype" EntitySet="stringtypes" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ProductPhoto_product1" Association="Self.fk_ProductPhoto_product1">
+            <End Role="product" EntitySet="products" />
+            <End Role="productphoto" EntitySet="productphotoes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_student_user1" Association="Self.fk_student_user1">
+            <End Role="user" EntitySet="users" />
+            <End Role="student" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="fk_teacher_user1" Association="Self.fk_teacher_user1">
+            <End Role="user" EntitySet="users" />
+            <End Role="teacher" EntitySet="teachers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_certificate_user1" Association="Self.fk_certificate_user1">
+            <End Role="user" EntitySet="users" />
+            <End Role="certificate" EntitySet="certificates" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_useraccount1" Association="Self.fk_user_useraccount1">
+            <End Role="useraccount" EntitySet="useraccounts" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="fk_acheivement_useraccount1" Association="Self.fk_acheivement_useraccount1">
+            <End Role="useraccount" EntitySet="useraccounts" />
+            <End Role="acheivement" EntitySet="acheivements" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GuqinInfoDataProductionStoreContainer" CdmEntityContainer="ProductionEntities">
+          <EntitySetMapping Name="accountstatus">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.accountstatu">
+              <MappingFragment StoreEntitySet="accountstatus">
+                <ScalarProperty Name="idaccountStatus" ColumnName="idaccountStatus" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="accounttypes">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.accounttype">
+              <MappingFragment StoreEntitySet="accounttype">
+                <ScalarProperty Name="userTypeId" ColumnName="userTypeId" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="businesses">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.business">
+              <MappingFragment StoreEntitySet="business">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="foundTime" ColumnName="foundTime" />
+                <ScalarProperty Name="despc" ColumnName="despc" />
+                <ScalarProperty Name="owner" ColumnName="owner" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="businesstypes">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.businesstype">
+              <MappingFragment StoreEntitySet="businesstype">
+                <ScalarProperty Name="idbusinessType" ColumnName="idbusinessType" />
+                <ScalarProperty Name="buisnessType" ColumnName="buisnessType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="majors">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.major">
+              <MappingFragment StoreEntitySet="major">
+                <ScalarProperty Name="idMajor" ColumnName="idMajor" />
+                <ScalarProperty Name="majorName" ColumnName="majorName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="madeTime" ColumnName="madeTime" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="idPorduct" ColumnName="idPorduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productphotoes">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.productphoto">
+              <MappingFragment StoreEntitySet="productphoto">
+                <ScalarProperty Name="idProductPhoto" ColumnName="idProductPhoto" />
+                <ScalarProperty Name="ProductPhoto1" ColumnName="ProductPhoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stringtypes">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.stringtype">
+              <MappingFragment StoreEntitySet="stringtype">
+                <ScalarProperty Name="idstringType" ColumnName="idstringType" />
+                <ScalarProperty Name="stringType1" ColumnName="stringType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="teachers">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.teacher">
+              <MappingFragment StoreEntitySet="teacher">
+                <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="headprotrait" ColumnName="headprotrait" />
+                <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+                <ScalarProperty Name="expYear" ColumnName="expYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="useraccounts">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.useraccount">
+              <MappingFragment StoreEntitySet="useraccount">
+                <ScalarProperty Name="idUserAccount" ColumnName="idUserAccount" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="registeredphonenum" ColumnName="registeredphonenum" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="langtitude" ColumnName="langtitude" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="acheivements">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.acheivement">
+              <MappingFragment StoreEntitySet="acheivement">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+                <ScalarProperty Name="acheivedTime" ColumnName="acheivedTime" />
+                <ScalarProperty Name="useraccount" ColumnName="useraccount" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="certificates">
+            <EntityTypeMapping TypeName="Guqin.Info.Data.Production.certificate">
+              <MappingFragment StoreEntitySet="certificate">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+                <ScalarProperty Name="acheivedTime" ColumnName="acheivedTime" />
+                <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="fk_useraccount_accountStatus1" TypeName="Guqin.Info.Data.Production.fk_useraccount_accountStatus1" StoreEntitySet="useraccount">
+            <EndProperty Name="accountstatus">
+              <ScalarProperty Name="idaccountStatus" ColumnName="accountStatus" />
+            </EndProperty>
+            <EndProperty Name="useraccount">
+              <ScalarProperty Name="idUserAccount" ColumnName="idUserAccount" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_useraccount_accounttype1" TypeName="Guqin.Info.Data.Production.fk_useraccount_accounttype1" StoreEntitySet="useraccount">
+            <EndProperty Name="accounttype">
+              <ScalarProperty Name="userTypeId" ColumnName="accountType" />
+            </EndProperty>
+            <EndProperty Name="useraccount">
+              <ScalarProperty Name="idUserAccount" ColumnName="idUserAccount" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_business_businessType1" TypeName="Guqin.Info.Data.Production.fk_business_businessType1" StoreEntitySet="business">
+            <EndProperty Name="businesstype">
+              <ScalarProperty Name="idbusinessType" ColumnName="businessType" />
+            </EndProperty>
+            <EndProperty Name="business">
+              <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_product_business1" TypeName="Guqin.Info.Data.Production.fk_product_business1" StoreEntitySet="product">
+            <EndProperty Name="business">
+              <ScalarProperty Name="userAccount" ColumnName="business_userAccount" />
+            </EndProperty>
+            <EndProperty Name="product">
+              <ScalarProperty Name="idPorduct" ColumnName="idPorduct" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_user_major1" TypeName="Guqin.Info.Data.Production.fk_user_major1" StoreEntitySet="user">
+            <EndProperty Name="major">
+              <ScalarProperty Name="idMajor" ColumnName="major" />
+            </EndProperty>
+            <EndProperty Name="user">
+              <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_product_stringType1" TypeName="Guqin.Info.Data.Production.fk_product_stringType1" StoreEntitySet="product">
+            <EndProperty Name="stringtype">
+              <ScalarProperty Name="idstringType" ColumnName="stringType_idstringType" />
+            </EndProperty>
+            <EndProperty Name="product">
+              <ScalarProperty Name="idPorduct" ColumnName="idPorduct" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_ProductPhoto_product1" TypeName="Guqin.Info.Data.Production.fk_ProductPhoto_product1" StoreEntitySet="productphoto">
+            <EndProperty Name="product">
+              <ScalarProperty Name="idPorduct" ColumnName="product_idPorduct" />
+            </EndProperty>
+            <EndProperty Name="productphoto">
+              <ScalarProperty Name="idProductPhoto" ColumnName="idProductPhoto" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

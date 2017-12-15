@@ -1,0 +1,8 @@
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data\bin\Debug\Guqin.Info.Data.dll.config
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data\bin\Debug\Guqin.Info.Data.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data\bin\Debug\Guqin.Info.Data.pdb
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data\bin\Debug\EntityFramework.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data\bin\Debug\EntityFramework.xml
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data\obj\Debug\Guqin.Info.Data.csprojResolveAssemblyReference.cache
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data\obj\Debug\Guqin.Info.Data.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data\obj\Debug\Guqin.Info.Data.pdb

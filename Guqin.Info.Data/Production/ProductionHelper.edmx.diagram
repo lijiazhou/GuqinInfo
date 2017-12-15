@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fde85d0baabf437191b0115f85dac916" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.accountstatu" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.accounttype" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.business" Width="1.5" PointX="2.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.businesstype" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.major" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.product" Width="1.5" PointX="4.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.productphoto" Width="1.5" PointX="2.625" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.stringtype" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.student" Width="1.5" PointX="4.875" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.teacher" Width="1.5" PointX="4.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.user" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.useraccount" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.acheivement" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guqin.Info.Data.Production.certificate" Width="1.5" PointX="2.625" PointY="13.125" IsExpanded="true" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_useraccount_accountStatus1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_useraccount_accounttype1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_business_businessType1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_business_useraccount1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_product_business1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_user_major1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_product_stringType1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_ProductPhoto_product1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_student_user1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_teacher_user1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_certificate_user1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_user_useraccount1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guqin.Info.Data.Production.fk_acheivement_useraccount1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

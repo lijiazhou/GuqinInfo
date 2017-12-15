@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guqin.Info", "Guqin.Info\Guqin.Info.csproj", "{30A9382E-6D55-42DB-8335-82FD4452AE8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Static.Extension", "Guqin.Info.Extension\Common.Static.Extension.csproj", "{47229FFE-E373-47C5-8E15-B20D3AA776A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guqin.Info.Data", "Guqin.Info.Data\Guqin.Info.Data.csproj", "{62DBD259-D39E-492B-914A-46AC40C7E87E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30A9382E-6D55-42DB-8335-82FD4452AE8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30A9382E-6D55-42DB-8335-82FD4452AE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30A9382E-6D55-42DB-8335-82FD4452AE8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30A9382E-6D55-42DB-8335-82FD4452AE8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47229FFE-E373-47C5-8E15-B20D3AA776A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47229FFE-E373-47C5-8E15-B20D3AA776A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47229FFE-E373-47C5-8E15-B20D3AA776A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47229FFE-E373-47C5-8E15-B20D3AA776A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62DBD259-D39E-492B-914A-46AC40C7E87E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62DBD259-D39E-492B-914A-46AC40C7E87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62DBD259-D39E-492B-914A-46AC40C7E87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62DBD259-D39E-492B-914A-46AC40C7E87E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

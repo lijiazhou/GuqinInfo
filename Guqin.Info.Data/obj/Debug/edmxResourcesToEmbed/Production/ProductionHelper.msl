@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GuqinInfoDataProductionStoreContainer" CdmEntityContainer="ProductionEntities">
+    <EntitySetMapping Name="accountstatus">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.accountstatu">
+        <MappingFragment StoreEntitySet="accountstatus">
+          <ScalarProperty Name="idaccountStatus" ColumnName="idaccountStatus" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="accounttypes">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.accounttype">
+        <MappingFragment StoreEntitySet="accounttype">
+          <ScalarProperty Name="userTypeId" ColumnName="userTypeId" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="businesses">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.business">
+        <MappingFragment StoreEntitySet="business">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="foundTime" ColumnName="foundTime" />
+          <ScalarProperty Name="despc" ColumnName="despc" />
+          <ScalarProperty Name="owner" ColumnName="owner" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="businesstypes">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.businesstype">
+        <MappingFragment StoreEntitySet="businesstype">
+          <ScalarProperty Name="idbusinessType" ColumnName="idbusinessType" />
+          <ScalarProperty Name="buisnessType" ColumnName="buisnessType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="majors">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.major">
+        <MappingFragment StoreEntitySet="major">
+          <ScalarProperty Name="idMajor" ColumnName="idMajor" />
+          <ScalarProperty Name="majorName" ColumnName="majorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="madeTime" ColumnName="madeTime" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="idPorduct" ColumnName="idPorduct" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productphotoes">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.productphoto">
+        <MappingFragment StoreEntitySet="productphoto">
+          <ScalarProperty Name="idProductPhoto" ColumnName="idProductPhoto" />
+          <ScalarProperty Name="ProductPhoto1" ColumnName="ProductPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stringtypes">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.stringtype">
+        <MappingFragment StoreEntitySet="stringtype">
+          <ScalarProperty Name="idstringType" ColumnName="idstringType" />
+          <ScalarProperty Name="stringType1" ColumnName="stringType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="headprotrait" ColumnName="headprotrait" />
+          <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+          <ScalarProperty Name="expYear" ColumnName="expYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="useraccounts">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.useraccount">
+        <MappingFragment StoreEntitySet="useraccount">
+          <ScalarProperty Name="idUserAccount" ColumnName="idUserAccount" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="registeredphonenum" ColumnName="registeredphonenum" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="langtitude" ColumnName="langtitude" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="acheivements">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.acheivement">
+        <MappingFragment StoreEntitySet="acheivement">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+          <ScalarProperty Name="acheivedTime" ColumnName="acheivedTime" />
+          <ScalarProperty Name="useraccount" ColumnName="useraccount" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="certificates">
+      <EntityTypeMapping TypeName="Guqin.Info.Data.Production.certificate">
+        <MappingFragment StoreEntitySet="certificate">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+          <ScalarProperty Name="acheivedTime" ColumnName="acheivedTime" />
+          <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="fk_useraccount_accountStatus1" TypeName="Guqin.Info.Data.Production.fk_useraccount_accountStatus1" StoreEntitySet="useraccount">
+      <EndProperty Name="accountstatus">
+        <ScalarProperty Name="idaccountStatus" ColumnName="accountStatus" />
+      </EndProperty>
+      <EndProperty Name="useraccount">
+        <ScalarProperty Name="idUserAccount" ColumnName="idUserAccount" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_useraccount_accounttype1" TypeName="Guqin.Info.Data.Production.fk_useraccount_accounttype1" StoreEntitySet="useraccount">
+      <EndProperty Name="accounttype">
+        <ScalarProperty Name="userTypeId" ColumnName="accountType" />
+      </EndProperty>
+      <EndProperty Name="useraccount">
+        <ScalarProperty Name="idUserAccount" ColumnName="idUserAccount" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_business_businessType1" TypeName="Guqin.Info.Data.Production.fk_business_businessType1" StoreEntitySet="business">
+      <EndProperty Name="businesstype">
+        <ScalarProperty Name="idbusinessType" ColumnName="businessType" />
+      </EndProperty>
+      <EndProperty Name="business">
+        <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_product_business1" TypeName="Guqin.Info.Data.Production.fk_product_business1" StoreEntitySet="product">
+      <EndProperty Name="business">
+        <ScalarProperty Name="userAccount" ColumnName="business_userAccount" />
+      </EndProperty>
+      <EndProperty Name="product">
+        <ScalarProperty Name="idPorduct" ColumnName="idPorduct" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_user_major1" TypeName="Guqin.Info.Data.Production.fk_user_major1" StoreEntitySet="user">
+      <EndProperty Name="major">
+        <ScalarProperty Name="idMajor" ColumnName="major" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_product_stringType1" TypeName="Guqin.Info.Data.Production.fk_product_stringType1" StoreEntitySet="product">
+      <EndProperty Name="stringtype">
+        <ScalarProperty Name="idstringType" ColumnName="stringType_idstringType" />
+      </EndProperty>
+      <EndProperty Name="product">
+        <ScalarProperty Name="idPorduct" ColumnName="idPorduct" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_ProductPhoto_product1" TypeName="Guqin.Info.Data.Production.fk_ProductPhoto_product1" StoreEntitySet="productphoto">
+      <EndProperty Name="product">
+        <ScalarProperty Name="idPorduct" ColumnName="product_idPorduct" />
+      </EndProperty>
+      <EndProperty Name="productphoto">
+        <ScalarProperty Name="idProductPhoto" ColumnName="idProductPhoto" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
