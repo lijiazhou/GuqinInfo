@@ -25,11 +25,13 @@ namespace Guqin.Info.Data.Production
         public string address { get; set; }
         public double latitude { get; set; }
         public double langtitude { get; set; }
+        public int accountType { get; set; }
         public string contact { get; set; }
+        public int accountStatus { get; set; }
         public string photo { get; set; }
     
         public virtual accountstatu accountstatu { get; set; }
-        public virtual accounttype accounttype { get; set; }
+        public virtual accounttype accounttype1 { get; set; }
         public virtual business business { get; set; }
         public virtual user user { get; set; }
         public virtual ICollection<acheivement> acheivements { get; set; }

@@ -22,6 +22,8 @@ namespace Guqin.Info.Data.Production
         public string name { get; set; }
         public System.DateTime madeTime { get; set; }
         public string deleted { get; set; }
+        public int business_userAccount { get; set; }
+        public int stringType_idstringType { get; set; }
         public int idPorduct { get; set; }
     
         public virtual business business { get; set; }

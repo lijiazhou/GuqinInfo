@@ -25,8 +25,9 @@ namespace Guqin.Info.Data.Production
         public string owner { get; set; }
         public string logo { get; set; }
         public int userAccount { get; set; }
+        public int businessType { get; set; }
     
-        public virtual businesstype businesstype { get; set; }
+        public virtual businesstype businesstype1 { get; set; }
         public virtual useraccount useraccount1 { get; set; }
         public virtual ICollection<product> products { get; set; }
     }

@@ -409,7 +409,8 @@ FROM `certificate` AS `certificate`</DefiningQuery>
           <Property Name="owner" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="logo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="userAccount" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="businesstype" Relationship="Self.fk_business_businessType1" FromRole="business" ToRole="businesstype" />
+          <Property Name="businessType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="businesstype1" Relationship="Self.fk_business_businessType1" FromRole="business" ToRole="businesstype" />
           <NavigationProperty Name="useraccount1" Relationship="Self.fk_business_useraccount1" FromRole="business" ToRole="useraccount" />
           <NavigationProperty Name="products" Relationship="Self.fk_product_business1" FromRole="business" ToRole="product" />
         </EntityType>
@@ -436,6 +437,8 @@ FROM `certificate` AS `certificate`</DefiningQuery>
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="madeTime" Type="DateTime" Nullable="false" />
           <Property Name="deleted" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="business_userAccount" Type="Int32" Nullable="false" />
+          <Property Name="stringType_idstringType" Type="Int32" Nullable="false" />
           <Property Name="idPorduct" Type="Int32" Nullable="false" />
           <NavigationProperty Name="business" Relationship="Self.fk_product_business1" FromRole="product" ToRole="business" />
           <NavigationProperty Name="stringtype" Relationship="Self.fk_product_stringType1" FromRole="product" ToRole="stringtype" />
@@ -447,6 +450,7 @@ FROM `certificate` AS `certificate`</DefiningQuery>
           </Key>
           <Property Name="idProductPhoto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductPhoto1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="product_idPorduct" Type="Int32" Nullable="false" />
           <NavigationProperty Name="product" Relationship="Self.fk_ProductPhoto_product1" FromRole="productphoto" ToRole="product" />
         </EntityType>
         <EntityType Name="stringtype">
@@ -483,7 +487,8 @@ FROM `certificate` AS `certificate`</DefiningQuery>
           <Property Name="headprotrait" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="userAccount" Type="Int32" Nullable="false" />
           <Property Name="expYear" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="major" Relationship="Self.fk_user_major1" FromRole="user" ToRole="major" />
+          <Property Name="major" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="major1" Relationship="Self.fk_user_major1" FromRole="user" ToRole="major" />
           <NavigationProperty Name="student" Relationship="Self.fk_student_user1" FromRole="user" ToRole="student" />
           <NavigationProperty Name="teacher" Relationship="Self.fk_teacher_user1" FromRole="user" ToRole="teacher" />
           <NavigationProperty Name="certificates" Relationship="Self.fk_certificate_user1" FromRole="user" ToRole="certificate" />
@@ -499,10 +504,12 @@ FROM `certificate` AS `certificate`</DefiningQuery>
           <Property Name="address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="latitude" Type="Double" Nullable="false" />
           <Property Name="langtitude" Type="Double" Nullable="false" />
+          <Property Name="accountType" Type="Int32" Nullable="false" />
           <Property Name="contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="accountStatus" Type="Int32" Nullable="false" />
           <Property Name="photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="accountstatu" Relationship="Self.fk_useraccount_accountStatus1" FromRole="useraccount" ToRole="accountstatus" />
-          <NavigationProperty Name="accounttype" Relationship="Self.fk_useraccount_accounttype1" FromRole="useraccount" ToRole="accounttype" />
+          <NavigationProperty Name="accounttype1" Relationship="Self.fk_useraccount_accounttype1" FromRole="useraccount" ToRole="accounttype" />
           <NavigationProperty Name="business" Relationship="Self.fk_business_useraccount1" FromRole="useraccount" ToRole="business" />
           <NavigationProperty Name="user" Relationship="Self.fk_user_useraccount1" FromRole="useraccount" ToRole="user" />
           <NavigationProperty Name="acheivements" Relationship="Self.fk_acheivement_useraccount1" FromRole="useraccount" ToRole="acheivement" />
@@ -535,14 +542,38 @@ FROM `certificate` AS `certificate`</DefiningQuery>
         <Association Name="fk_useraccount_accountStatus1">
           <End Role="accountstatus" Type="Self.accountstatu" Multiplicity="1" />
           <End Role="useraccount" Type="Self.useraccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accountstatus">
+              <PropertyRef Name="idaccountStatus" />
+            </Principal>
+            <Dependent Role="useraccount">
+              <PropertyRef Name="accountStatus" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="fk_useraccount_accounttype1">
           <End Role="accounttype" Type="Self.accounttype" Multiplicity="1" />
           <End Role="useraccount" Type="Self.useraccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounttype">
+              <PropertyRef Name="userTypeId" />
+            </Principal>
+            <Dependent Role="useraccount">
+              <PropertyRef Name="accountType" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="fk_business_businessType1">
           <End Role="businesstype" Type="Self.businesstype" Multiplicity="1" />
           <End Role="business" Type="Self.business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="businesstype">
+              <PropertyRef Name="idbusinessType" />
+            </Principal>
+            <Dependent Role="business">
+              <PropertyRef Name="businessType" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="fk_business_useraccount1">
           <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
@@ -559,18 +590,50 @@ FROM `certificate` AS `certificate`</DefiningQuery>
         <Association Name="fk_product_business1">
           <End Role="business" Type="Self.business" Multiplicity="1" />
           <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="business">
+              <PropertyRef Name="userAccount" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="business_userAccount" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="fk_user_major1">
           <End Role="major" Type="Self.major" Multiplicity="1" />
           <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="major">
+              <PropertyRef Name="idMajor" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="major" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="fk_product_stringType1">
           <End Role="stringtype" Type="Self.stringtype" Multiplicity="1" />
           <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stringtype">
+              <PropertyRef Name="idstringType" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="stringType_idstringType" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="fk_ProductPhoto_product1">
           <End Role="product" Type="Self.product" Multiplicity="1" />
           <End Role="productphoto" Type="Self.productphoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="idPorduct" />
+            </Principal>
+            <Dependent Role="productphoto">
+              <PropertyRef Name="product_idPorduct" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="fk_student_user1">
           <End Role="user" Type="Self.user" Multiplicity="1" />
@@ -731,6 +794,7 @@ FROM `certificate` AS `certificate`</DefiningQuery>
                 <ScalarProperty Name="owner" ColumnName="owner" />
                 <ScalarProperty Name="logo" ColumnName="logo" />
                 <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+                <ScalarProperty Name="businessType" ColumnName="businessType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -756,6 +820,8 @@ FROM `certificate` AS `certificate`</DefiningQuery>
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="madeTime" ColumnName="madeTime" />
                 <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="business_userAccount" ColumnName="business_userAccount" />
+                <ScalarProperty Name="stringType_idstringType" ColumnName="stringType_idstringType" />
                 <ScalarProperty Name="idPorduct" ColumnName="idPorduct" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -765,6 +831,7 @@ FROM `certificate` AS `certificate`</DefiningQuery>
               <MappingFragment StoreEntitySet="productphoto">
                 <ScalarProperty Name="idProductPhoto" ColumnName="idProductPhoto" />
                 <ScalarProperty Name="ProductPhoto1" ColumnName="ProductPhoto" />
+                <ScalarProperty Name="product_idPorduct" ColumnName="product_idPorduct" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -801,6 +868,7 @@ FROM `certificate` AS `certificate`</DefiningQuery>
                 <ScalarProperty Name="headprotrait" ColumnName="headprotrait" />
                 <ScalarProperty Name="userAccount" ColumnName="userAccount" />
                 <ScalarProperty Name="expYear" ColumnName="expYear" />
+                <ScalarProperty Name="major" ColumnName="major" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -813,7 +881,9 @@ FROM `certificate` AS `certificate`</DefiningQuery>
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="langtitude" ColumnName="langtitude" />
+                <ScalarProperty Name="accountType" ColumnName="accountType" />
                 <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="accountStatus" ColumnName="accountStatus" />
                 <ScalarProperty Name="photo" ColumnName="photo" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -839,62 +909,6 @@ FROM `certificate` AS `certificate`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="fk_useraccount_accountStatus1" TypeName="Guqin.Info.Data.Production.fk_useraccount_accountStatus1" StoreEntitySet="useraccount">
-            <EndProperty Name="accountstatus">
-              <ScalarProperty Name="idaccountStatus" ColumnName="accountStatus" />
-            </EndProperty>
-            <EndProperty Name="useraccount">
-              <ScalarProperty Name="idUserAccount" ColumnName="idUserAccount" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="fk_useraccount_accounttype1" TypeName="Guqin.Info.Data.Production.fk_useraccount_accounttype1" StoreEntitySet="useraccount">
-            <EndProperty Name="accounttype">
-              <ScalarProperty Name="userTypeId" ColumnName="accountType" />
-            </EndProperty>
-            <EndProperty Name="useraccount">
-              <ScalarProperty Name="idUserAccount" ColumnName="idUserAccount" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="fk_business_businessType1" TypeName="Guqin.Info.Data.Production.fk_business_businessType1" StoreEntitySet="business">
-            <EndProperty Name="businesstype">
-              <ScalarProperty Name="idbusinessType" ColumnName="businessType" />
-            </EndProperty>
-            <EndProperty Name="business">
-              <ScalarProperty Name="userAccount" ColumnName="userAccount" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="fk_product_business1" TypeName="Guqin.Info.Data.Production.fk_product_business1" StoreEntitySet="product">
-            <EndProperty Name="business">
-              <ScalarProperty Name="userAccount" ColumnName="business_userAccount" />
-            </EndProperty>
-            <EndProperty Name="product">
-              <ScalarProperty Name="idPorduct" ColumnName="idPorduct" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="fk_user_major1" TypeName="Guqin.Info.Data.Production.fk_user_major1" StoreEntitySet="user">
-            <EndProperty Name="major">
-              <ScalarProperty Name="idMajor" ColumnName="major" />
-            </EndProperty>
-            <EndProperty Name="user">
-              <ScalarProperty Name="userAccount" ColumnName="userAccount" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="fk_product_stringType1" TypeName="Guqin.Info.Data.Production.fk_product_stringType1" StoreEntitySet="product">
-            <EndProperty Name="stringtype">
-              <ScalarProperty Name="idstringType" ColumnName="stringType_idstringType" />
-            </EndProperty>
-            <EndProperty Name="product">
-              <ScalarProperty Name="idPorduct" ColumnName="idPorduct" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="fk_ProductPhoto_product1" TypeName="Guqin.Info.Data.Production.fk_ProductPhoto_product1" StoreEntitySet="productphoto">
-            <EndProperty Name="product">
-              <ScalarProperty Name="idPorduct" ColumnName="product_idPorduct" />
-            </EndProperty>
-            <EndProperty Name="productphoto">
-              <ScalarProperty Name="idProductPhoto" ColumnName="idProductPhoto" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -910,7 +924,7 @@ FROM `certificate` AS `certificate`</DefiningQuery>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="true" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

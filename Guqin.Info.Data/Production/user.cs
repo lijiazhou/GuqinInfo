@@ -27,8 +27,9 @@ namespace Guqin.Info.Data.Production
         public string headprotrait { get; set; }
         public int userAccount { get; set; }
         public System.DateTime expYear { get; set; }
+        public int major { get; set; }
     
-        public virtual major major { get; set; }
+        public virtual major major1 { get; set; }
         public virtual student student { get; set; }
         public virtual teacher teacher { get; set; }
         public virtual ICollection<certificate> certificates { get; set; }

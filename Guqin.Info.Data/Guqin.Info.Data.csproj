@@ -34,11 +34,19 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -137,12 +145,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EntityDeploy Include="Production\ProductionHelper.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ProductionHelper.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
     <EntityDeploy Include="Configuration\ConfigurationHelper.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -151,6 +153,10 @@
     <None Include="Configuration\ConfigurationHelper.edmx.diagram">
       <DependentUpon>ConfigurationHelper.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Production\ProductionHelper.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ProductionHelper.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="packages.config" />
     <None Include="Production\ProductionHelper.edmx.diagram">
       <DependentUpon>ProductionHelper.edmx</DependentUpon>
@@ -169,8 +175,8 @@
     </Content>
     <Content Include="Production\ProductionHelper.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ProductionHelper.Context.cs</LastGenOutput>
       <DependentUpon>ProductionHelper.edmx</DependentUpon>
+      <LastGenOutput>ProductionHelper.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Production\ProductionHelper.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

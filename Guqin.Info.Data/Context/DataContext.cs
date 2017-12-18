@@ -15,8 +15,8 @@ namespace Guqin.Info.Data.Context
 
         public DataContext()
         {
-            _productionEntities = new ProductionEntities();
             _configurationEntities = new ConfigurationEntities();
+            _productionEntities = new ProductionEntities();        
         }
     }
 }
