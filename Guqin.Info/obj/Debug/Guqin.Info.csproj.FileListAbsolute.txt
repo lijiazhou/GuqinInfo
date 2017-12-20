@@ -1,3 +1,4 @@
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\obj\Debug\Guqin.Info.csprojResolveAssemblyReference.cache
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\ApplicationInsights.config
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\roslyn\csc.exe
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\roslyn\csc.exe.config
@@ -30,8 +31,10 @@ D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Guqin.Info.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Guqin.Info.pdb
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Antlr3.Runtime.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Common.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Common.Static.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\EntityFramework.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Guqin.Info.Data.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Guqin.Info.Data.Model.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Microsoft.AI.Agent.Intercept.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Microsoft.AI.DependencyCollector.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -50,6 +53,9 @@ D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\System.Web.WebPa
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\System.Web.WebPages.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\System.Web.WebPages.Razor.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\WebGrease.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Common.Static.pdb
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Guqin.Info.Data.Model.pdb
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Guqin.Info.Data.Model.dll.config
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Guqin.Info.Data.pdb
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Guqin.Info.Data.dll.config
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Common.pdb
@@ -69,6 +75,5 @@ D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Microsoft.AI.Dep
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Microsoft.AI.WindowsServer.xml
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\bin\Microsoft.AI.Web.xml
-D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\obj\Debug\Guqin.Info.csprojResolveAssemblyReference.cache
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\obj\Debug\Guqin.Info.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info\obj\Debug\Guqin.Info.pdb

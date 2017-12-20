@@ -1,0 +1,5 @@
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Settings\bin\Debug\Common.Static.Settings.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Settings\bin\Debug\Common.Static.Settings.pdb
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Settings\obj\Debug\Common.Static.Settings.csprojResolveAssemblyReference.cache
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Settings\obj\Debug\Common.Static.Settings.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Settings\obj\Debug\Common.Static.Settings.pdb

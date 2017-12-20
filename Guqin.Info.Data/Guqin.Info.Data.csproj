@@ -73,10 +73,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConfigurationHelper.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Configuration\ConfigurationModel\CfgActivity\ActivityConfig.cs" />
-    <Compile Include="Configuration\ConfigurationModel\CfgMenuModel\MenuConfig.cs" />
-    <Compile Include="Configuration\ConfigurationModel\CfgMenuModel\MenuItem.cs" />
-    <Compile Include="Configuration\ConfigurationModel\CfgProject\ProjectConfig.cs" />
     <Compile Include="Configuration\menu.cs">
       <DependentUpon>ConfigurationHelper.tt</DependentUpon>
     </Compile>

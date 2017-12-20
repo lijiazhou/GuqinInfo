@@ -1,0 +1,4 @@
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\bin\Debug\Common.Static.Utility.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\bin\Debug\Common.Static.Utility.pdb
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\obj\Debug\Common.Static.Utility.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\obj\Debug\Common.Static.Utility.pdb

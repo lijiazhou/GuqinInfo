@@ -145,10 +145,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Filters\AuthenticationAttribute .cs" />
+    <Compile Include="Filters\ErrorAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -230,6 +233,18 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Static.Settings\Common.Static.Settings.csproj">
+      <Project>{d3056f26-0390-4a61-b0cd-af21a38cd63f}</Project>
+      <Name>Common.Static.Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Static.Utility\Common.Static.Utility.csproj">
+      <Project>{2f5dcabb-4f43-407a-957f-46915bdd3158}</Project>
+      <Name>Common.Static.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Guqin.Info.Data.Model\Guqin.Info.Data.Model.csproj">
+      <Project>{feb9d1ef-f5ae-4277-88bd-6c5e6c47f767}</Project>
+      <Name>Guqin.Info.Data.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Guqin.Info.Data\Guqin.Info.Data.csproj">
       <Project>{62dbd259-d39e-492b-914a-46ac40c7e87e}</Project>
       <Name>Guqin.Info.Data</Name>

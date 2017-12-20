@@ -4,10 +4,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guqin.Info", "Guqin.Info\Guqin.Info.csproj", "{30A9382E-6D55-42DB-8335-82FD4452AE8B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{62DBD259-D39E-492B-914A-46AC40C7E87E} = {62DBD259-D39E-492B-914A-46AC40C7E87E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Static.Extension", "Guqin.Info.Extension\Common.Static.Extension.csproj", "{47229FFE-E373-47C5-8E15-B20D3AA776A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guqin.Info.Data", "Guqin.Info.Data\Guqin.Info.Data.csproj", "{62DBD259-D39E-492B-914A-46AC40C7E87E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Static.Settings", "Common.Static.Settings\Common.Static.Settings.csproj", "{D3056F26-0390-4A61-B0CD-AF21A38CD63F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Static.Utility", "Common.Static.Utility\Common.Static.Utility.csproj", "{2F5DCABB-4F43-407A-957F-46915BDD3158}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guqin.Info.Data.Model", "Guqin.Info.Data.Model\Guqin.Info.Data.Model.csproj", "{FEB9D1EF-F5AE-4277-88BD-6C5E6C47F767}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +36,18 @@ Global
 		{62DBD259-D39E-492B-914A-46AC40C7E87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62DBD259-D39E-492B-914A-46AC40C7E87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62DBD259-D39E-492B-914A-46AC40C7E87E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3056F26-0390-4A61-B0CD-AF21A38CD63F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3056F26-0390-4A61-B0CD-AF21A38CD63F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3056F26-0390-4A61-B0CD-AF21A38CD63F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3056F26-0390-4A61-B0CD-AF21A38CD63F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F5DCABB-4F43-407A-957F-46915BDD3158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5DCABB-4F43-407A-957F-46915BDD3158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5DCABB-4F43-407A-957F-46915BDD3158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5DCABB-4F43-407A-957F-46915BDD3158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEB9D1EF-F5AE-4277-88BD-6C5E6C47F767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEB9D1EF-F5AE-4277-88BD-6C5E6C47F767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEB9D1EF-F5AE-4277-88BD-6C5E6C47F767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEB9D1EF-F5AE-4277-88BD-6C5E6C47F767}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
