@@ -7,6 +7,7 @@ namespace Guqin.Info.MVC.Controllers
     public class SearchController : BaseController
     {
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Search()
         {
             return View();

@@ -6,6 +6,7 @@ using System.Collections.Specialized;
 using Guqin.Info.Data.Configuration.ConfigurationModel.CfgProject;
 using Guqin.Info.Data.Configuration.ConfigurationModel.CfgMenuModel;
 using Guqin.Info.Data.Configuration.ConfigurationModel.CfgActivity;
+using System.Web;
 
 namespace Guqin.Info.MVC.Controllers
 {
@@ -19,9 +20,10 @@ namespace Guqin.Info.MVC.Controllers
         protected ProjectConfig ProjectConf { get { return _projectConf; } }
         protected NameValueCollection AppSetting { get { return _appSetting; } }
         protected ActivityConfig ActivityCfg { set; get; }
-        protected MenuConfig mainMenuConf { get { return _mainMenuConf; } }
+        protected MenuConfig MainMenuConf { get { return _mainMenuConf; } }
+        protected HttpContext CurrentContext { get { return System.Web.HttpContext.Current; } }
 
-        protected BaseController()
+        protected BaseController() : base()
         {
             this.InitializeDataContext();
             this.InitializeProjectConf();
@@ -60,11 +62,9 @@ namespace Guqin.Info.MVC.Controllers
         {
             this.ViewBag.projectConfig = this.ProjectConf;
             this.ViewBag.activityConfig = this.ActivityCfg;
-            this.ViewBag.menuConfig = this.mainMenuConf;
+            this.ViewBag.menuConfig = this.MainMenuConf;
         }
 
         protected abstract void InitilizeActivityConf();
-
-
     }
 }

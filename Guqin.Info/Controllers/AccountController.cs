@@ -11,10 +11,11 @@ namespace Guqin.Info.MVC.Controllers
     {
         // GET: Login
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
-        }
+        }      
 
         protected override void InitilizeActivityConf()
         {

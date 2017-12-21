@@ -11,6 +11,7 @@ namespace Guqin.Info.MVC.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
@@ -18,6 +19,7 @@ namespace Guqin.Info.MVC.Controllers
 
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -25,6 +27,7 @@ namespace Guqin.Info.MVC.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
