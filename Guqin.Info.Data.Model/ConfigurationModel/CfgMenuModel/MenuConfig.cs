@@ -31,7 +31,7 @@ namespace Guqin.Info.Data.Configuration.ConfigurationModel.CfgMenuModel
                         Action = x.actionName,
                         Class = x.@class,
                         Controller = x.controllerName,
-                        Name = x.MenuName,
+                        Name = x.menuName,
                         Order = x.itemOrder,
                         SubMenu = Create(menus.Where(y => y.idMenu == x.submenu && x.submenu.HasValue), true)
                     });

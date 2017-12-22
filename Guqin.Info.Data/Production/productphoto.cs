@@ -16,8 +16,8 @@ namespace Guqin.Info.Data.Production
     {
         public int idProductPhoto { get; set; }
         public string ProductPhoto1 { get; set; }
-        public int product_idPorduct { get; set; }
+        public int product { get; set; }
     
-        public virtual product product { get; set; }
+        public virtual product product1 { get; set; }
     }
 }

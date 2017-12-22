@@ -21,7 +21,9 @@ namespace Guqin.Info.Data.Production
     
         public int idMajor { get; set; }
         public string majorName { get; set; }
+        public int SubMajorCategory { get; set; }
     
+        public virtual submajorcategory submajorcategory1 { get; set; }
         public virtual ICollection<user> users { get; set; }
     }
 }

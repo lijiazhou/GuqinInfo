@@ -13,7 +13,7 @@
       <PropertyRef Name="idMenu" />
     </Key>
     <Property Name="idMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MenuName" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="menuName" Type="varchar" MaxLength="45" Nullable="false" />
     <Property Name="submenu" Type="int" />
     <Property Name="actionName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="controllerName" Type="varchar" MaxLength="50" Nullable="false" />

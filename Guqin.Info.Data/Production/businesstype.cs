@@ -20,7 +20,7 @@ namespace Guqin.Info.Data.Production
         }
     
         public int idbusinessType { get; set; }
-        public string buisnessType { get; set; }
+        public string businessType1 { get; set; }
     
         public virtual ICollection<business> businesses { get; set; }
     }

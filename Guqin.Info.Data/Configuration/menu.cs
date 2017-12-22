@@ -20,7 +20,7 @@ namespace Guqin.Info.Data.Configuration
         }
     
         public int idMenu { get; set; }
-        public string MenuName { get; set; }
+        public string menuName { get; set; }
         public Nullable<int> submenu { get; set; }
         public string actionName { get; set; }
         public string controllerName { get; set; }

@@ -1,42 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Guqin.Info.Data.Configuration" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ConfigurationEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="activities" EntityType="Guqin.Info.Data.Configuration.activity" />
+    <EntitySet Name="menus" EntityType="Guqin.Info.Data.Configuration.menu" />
+    <EntitySet Name="projects" EntityType="Guqin.Info.Data.Configuration.project" />
+    <AssociationSet Name="fk_Activities_Project" Association="Guqin.Info.Data.Configuration.fk_Activities_Project">
+      <End Role="project" EntitySet="projects" />
+      <End Role="activity" EntitySet="activities" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Menu_Menu1" Association="Guqin.Info.Data.Configuration.fk_Menu_Menu1">
+      <End Role="menu" EntitySet="menus" />
+      <End Role="menu1" EntitySet="menus" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Menu_Project1" Association="Guqin.Info.Data.Configuration.fk_Menu_Project1">
+      <End Role="project" EntitySet="projects" />
+      <End Role="menu" EntitySet="menus" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="activity">
     <Key>
       <PropertyRef Name="idActivities" />
     </Key>
     <Property Name="idActivities" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="idProject" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="project" Relationship="Self.fk_Activities_Project" FromRole="activity" ToRole="project" />
+    <NavigationProperty Name="project" Relationship="Guqin.Info.Data.Configuration.fk_Activities_Project" FromRole="activity" ToRole="project" />
   </EntityType>
   <EntityType Name="menu">
     <Key>
       <PropertyRef Name="idMenu" />
     </Key>
     <Property Name="idMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MenuName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="menuName" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="submenu" Type="Int32" />
-    <Property Name="actionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="controllerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="class" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="actionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="controllerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="class" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="itemOrder" Type="Int32" Nullable="false" />
     <Property Name="idProject" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="menu1" Relationship="Self.fk_Menu_Menu1" FromRole="menu" ToRole="menu1" />
-    <NavigationProperty Name="menu2" Relationship="Self.fk_Menu_Menu1" FromRole="menu1" ToRole="menu" />
-    <NavigationProperty Name="project" Relationship="Self.fk_Menu_Project1" FromRole="menu" ToRole="project" />
+    <NavigationProperty Name="menu1" Relationship="Guqin.Info.Data.Configuration.fk_Menu_Menu1" FromRole="menu" ToRole="menu1" />
+    <NavigationProperty Name="menu2" Relationship="Guqin.Info.Data.Configuration.fk_Menu_Menu1" FromRole="menu1" ToRole="menu" />
+    <NavigationProperty Name="project" Relationship="Guqin.Info.Data.Configuration.fk_Menu_Project1" FromRole="menu" ToRole="project" />
   </EntityType>
   <EntityType Name="project">
     <Key>
       <PropertyRef Name="idProject" />
     </Key>
     <Property Name="idProject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="projectName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="activities" Relationship="Self.fk_Activities_Project" FromRole="project" ToRole="activity" />
-    <NavigationProperty Name="menus" Relationship="Self.fk_Menu_Project1" FromRole="project" ToRole="menu" />
+    <Property Name="projectName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="activities" Relationship="Guqin.Info.Data.Configuration.fk_Activities_Project" FromRole="project" ToRole="activity" />
+    <NavigationProperty Name="menus" Relationship="Guqin.Info.Data.Configuration.fk_Menu_Project1" FromRole="project" ToRole="menu" />
   </EntityType>
   <Association Name="fk_Activities_Project">
-    <End Role="project" Type="Self.project" Multiplicity="1" />
-    <End Role="activity" Type="Self.activity" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Configuration.project" Role="project" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Configuration.activity" Role="activity" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="project">
         <PropertyRef Name="idProject" />
@@ -47,8 +64,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_Menu_Menu1">
-    <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
-    <End Role="menu1" Type="Self.menu" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Configuration.menu" Role="menu" Multiplicity="0..1" />
+    <End Type="Guqin.Info.Data.Configuration.menu" Role="menu1" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="menu">
         <PropertyRef Name="idMenu" />
@@ -59,8 +76,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_Menu_Project1">
-    <End Role="project" Type="Self.project" Multiplicity="1" />
-    <End Role="menu" Type="Self.menu" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Configuration.project" Role="project" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Configuration.menu" Role="menu" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="project">
         <PropertyRef Name="idProject" />
@@ -70,21 +87,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ConfigurationEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="activities" EntityType="Self.activity" />
-    <EntitySet Name="menus" EntityType="Self.menu" />
-    <EntitySet Name="projects" EntityType="Self.project" />
-    <AssociationSet Name="fk_Activities_Project" Association="Self.fk_Activities_Project">
-      <End Role="project" EntitySet="projects" />
-      <End Role="activity" EntitySet="activities" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Menu_Menu1" Association="Self.fk_Menu_Menu1">
-      <End Role="menu" EntitySet="menus" />
-      <End Role="menu1" EntitySet="menus" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Menu_Project1" Association="Self.fk_Menu_Project1">
-      <End Role="project" EntitySet="projects" />
-      <End Role="menu" EntitySet="menus" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

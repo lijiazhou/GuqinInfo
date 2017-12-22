@@ -101,6 +101,9 @@
     <Compile Include="Production\major.cs">
       <DependentUpon>ProductionHelper.tt</DependentUpon>
     </Compile>
+    <Compile Include="Production\majorcategory.cs">
+      <DependentUpon>ProductionHelper.tt</DependentUpon>
+    </Compile>
     <Compile Include="Production\product.cs">
       <DependentUpon>ProductionHelper.tt</DependentUpon>
     </Compile>
@@ -126,6 +129,9 @@
       <DependentUpon>ProductionHelper.tt</DependentUpon>
     </Compile>
     <Compile Include="Production\student.cs">
+      <DependentUpon>ProductionHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Production\submajorcategory.cs">
       <DependentUpon>ProductionHelper.tt</DependentUpon>
     </Compile>
     <Compile Include="Production\teacher.cs">

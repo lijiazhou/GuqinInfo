@@ -1,135 +1,233 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Guqin.Info.Data.Production" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ProductionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="accountstatus" EntityType="Guqin.Info.Data.Production.accountstatu" />
+    <EntitySet Name="accounttypes" EntityType="Guqin.Info.Data.Production.accounttype" />
+    <EntitySet Name="businesses" EntityType="Guqin.Info.Data.Production.business" />
+    <EntitySet Name="businesstypes" EntityType="Guqin.Info.Data.Production.businesstype" />
+    <EntitySet Name="majors" EntityType="Guqin.Info.Data.Production.major" />
+    <EntitySet Name="majorcategories" EntityType="Guqin.Info.Data.Production.majorcategory" />
+    <EntitySet Name="products" EntityType="Guqin.Info.Data.Production.product" />
+    <EntitySet Name="productphotoes" EntityType="Guqin.Info.Data.Production.productphoto" />
+    <EntitySet Name="stringtypes" EntityType="Guqin.Info.Data.Production.stringtype" />
+    <EntitySet Name="students" EntityType="Guqin.Info.Data.Production.student" />
+    <EntitySet Name="submajorcategories" EntityType="Guqin.Info.Data.Production.submajorcategory" />
+    <EntitySet Name="teachers" EntityType="Guqin.Info.Data.Production.teacher" />
+    <EntitySet Name="users" EntityType="Guqin.Info.Data.Production.user" />
+    <EntitySet Name="useraccounts" EntityType="Guqin.Info.Data.Production.useraccount" />
+    <EntitySet Name="acheivements" EntityType="Guqin.Info.Data.Production.acheivement" />
+    <EntitySet Name="certificates" EntityType="Guqin.Info.Data.Production.certificate" />
+    <AssociationSet Name="fk_useraccount_accountStatus1" Association="Guqin.Info.Data.Production.fk_useraccount_accountStatus1">
+      <End Role="accountstatu" EntitySet="accountstatus" />
+      <End Role="useraccount" EntitySet="useraccounts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_useraccount_accounttype1" Association="Guqin.Info.Data.Production.fk_useraccount_accounttype1">
+      <End Role="accounttype" EntitySet="accounttypes" />
+      <End Role="useraccount" EntitySet="useraccounts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_business_businessType1" Association="Guqin.Info.Data.Production.fk_business_businessType1">
+      <End Role="businesstype" EntitySet="businesstypes" />
+      <End Role="business" EntitySet="businesses" />
+    </AssociationSet>
+    <AssociationSet Name="fk_business_useraccount1" Association="Guqin.Info.Data.Production.fk_business_useraccount1">
+      <End Role="useraccount" EntitySet="useraccounts" />
+      <End Role="business" EntitySet="businesses" />
+    </AssociationSet>
+    <AssociationSet Name="fk_product_business1" Association="Guqin.Info.Data.Production.fk_product_business1">
+      <End Role="business" EntitySet="businesses" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Major_SubMajorCategory1" Association="Guqin.Info.Data.Production.fk_Major_SubMajorCategory1">
+      <End Role="submajorcategory" EntitySet="submajorcategories" />
+      <End Role="major" EntitySet="majors" />
+    </AssociationSet>
+    <AssociationSet Name="fk_user_major1" Association="Guqin.Info.Data.Production.fk_user_major1">
+      <End Role="major" EntitySet="majors" />
+      <End Role="user" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_SubMajorCategory_MajerCategory1" Association="Guqin.Info.Data.Production.fk_SubMajorCategory_MajerCategory1">
+      <End Role="majorcategory" EntitySet="majorcategories" />
+      <End Role="submajorcategory" EntitySet="submajorcategories" />
+    </AssociationSet>
+    <AssociationSet Name="fk_product_stringType1" Association="Guqin.Info.Data.Production.fk_product_stringType1">
+      <End Role="stringtype" EntitySet="stringtypes" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ProductPhoto_product1" Association="Guqin.Info.Data.Production.fk_ProductPhoto_product1">
+      <End Role="product" EntitySet="products" />
+      <End Role="productphoto" EntitySet="productphotoes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_student_user1" Association="Guqin.Info.Data.Production.fk_student_user1">
+      <End Role="user" EntitySet="users" />
+      <End Role="student" EntitySet="students" />
+    </AssociationSet>
+    <AssociationSet Name="fk_teacher_user1" Association="Guqin.Info.Data.Production.fk_teacher_user1">
+      <End Role="user" EntitySet="users" />
+      <End Role="teacher" EntitySet="teachers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_certificate_user1" Association="Guqin.Info.Data.Production.fk_certificate_user1">
+      <End Role="user" EntitySet="users" />
+      <End Role="certificate" EntitySet="certificates" />
+    </AssociationSet>
+    <AssociationSet Name="fk_user_useraccount1" Association="Guqin.Info.Data.Production.fk_user_useraccount1">
+      <End Role="useraccount" EntitySet="useraccounts" />
+      <End Role="user" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_acheivement_useraccount1" Association="Guqin.Info.Data.Production.fk_acheivement_useraccount1">
+      <End Role="useraccount" EntitySet="useraccounts" />
+      <End Role="acheivement" EntitySet="acheivements" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="accountstatu">
     <Key>
       <PropertyRef Name="idaccountStatus" />
     </Key>
     <Property Name="idaccountStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="useraccounts" Relationship="Self.fk_useraccount_accountStatus1" FromRole="accountstatus" ToRole="useraccount" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="useraccounts" Relationship="Guqin.Info.Data.Production.fk_useraccount_accountStatus1" FromRole="accountstatu" ToRole="useraccount" />
   </EntityType>
   <EntityType Name="accounttype">
     <Key>
       <PropertyRef Name="userTypeId" />
     </Key>
     <Property Name="userTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="userType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="useraccounts" Relationship="Self.fk_useraccount_accounttype1" FromRole="accounttype" ToRole="useraccount" />
+    <Property Name="userType" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="useraccounts" Relationship="Guqin.Info.Data.Production.fk_useraccount_accounttype1" FromRole="accounttype" ToRole="useraccount" />
   </EntityType>
   <EntityType Name="business">
     <Key>
       <PropertyRef Name="userAccount" />
     </Key>
-    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="foundTime" Type="DateTime" Nullable="false" />
-    <Property Name="despc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="owner" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="logo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="despc" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="owner" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="logo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="userAccount" Type="Int32" Nullable="false" />
     <Property Name="businessType" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="businesstype1" Relationship="Self.fk_business_businessType1" FromRole="business" ToRole="businesstype" />
-    <NavigationProperty Name="useraccount1" Relationship="Self.fk_business_useraccount1" FromRole="business" ToRole="useraccount" />
-    <NavigationProperty Name="products" Relationship="Self.fk_product_business1" FromRole="business" ToRole="product" />
+    <NavigationProperty Name="businesstype1" Relationship="Guqin.Info.Data.Production.fk_business_businessType1" FromRole="business" ToRole="businesstype" />
+    <NavigationProperty Name="useraccount1" Relationship="Guqin.Info.Data.Production.fk_business_useraccount1" FromRole="business" ToRole="useraccount" />
+    <NavigationProperty Name="products" Relationship="Guqin.Info.Data.Production.fk_product_business1" FromRole="business" ToRole="product" />
   </EntityType>
   <EntityType Name="businesstype">
     <Key>
       <PropertyRef Name="idbusinessType" />
     </Key>
     <Property Name="idbusinessType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="buisnessType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="businesses" Relationship="Self.fk_business_businessType1" FromRole="businesstype" ToRole="business" />
+    <Property Name="businessType1" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="businesses" Relationship="Guqin.Info.Data.Production.fk_business_businessType1" FromRole="businesstype" ToRole="business" />
   </EntityType>
   <EntityType Name="major">
     <Key>
       <PropertyRef Name="idMajor" />
     </Key>
-    <Property Name="idMajor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="majorName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="users" Relationship="Self.fk_user_major1" FromRole="major" ToRole="user" />
+    <Property Name="idMajor" Type="Int32" Nullable="false" />
+    <Property Name="majorName" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="SubMajorCategory" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="submajorcategory1" Relationship="Guqin.Info.Data.Production.fk_Major_SubMajorCategory1" FromRole="major" ToRole="submajorcategory" />
+    <NavigationProperty Name="users" Relationship="Guqin.Info.Data.Production.fk_user_major1" FromRole="major" ToRole="user" />
+  </EntityType>
+  <EntityType Name="majorcategory">
+    <Key>
+      <PropertyRef Name="idMajerCategory" />
+    </Key>
+    <Property Name="idMajerCategory" Type="Int32" Nullable="false" />
+    <Property Name="categoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="submajorcategories" Relationship="Guqin.Info.Data.Production.fk_SubMajorCategory_MajerCategory1" FromRole="majorcategory" ToRole="submajorcategory" />
   </EntityType>
   <EntityType Name="product">
     <Key>
       <PropertyRef Name="idPorduct" />
     </Key>
-    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="madeTime" Type="DateTime" Nullable="false" />
-    <Property Name="deleted" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="business_userAccount" Type="Int32" Nullable="false" />
-    <Property Name="stringType_idstringType" Type="Int32" Nullable="false" />
+    <Property Name="deleted" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="business" Type="Int32" Nullable="false" />
+    <Property Name="stringType" Type="Int32" Nullable="false" />
     <Property Name="idPorduct" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="business" Relationship="Self.fk_product_business1" FromRole="product" ToRole="business" />
-    <NavigationProperty Name="stringtype" Relationship="Self.fk_product_stringType1" FromRole="product" ToRole="stringtype" />
-    <NavigationProperty Name="productphotoes" Relationship="Self.fk_ProductPhoto_product1" FromRole="product" ToRole="productphoto" />
+    <NavigationProperty Name="business1" Relationship="Guqin.Info.Data.Production.fk_product_business1" FromRole="product" ToRole="business" />
+    <NavigationProperty Name="stringtype1" Relationship="Guqin.Info.Data.Production.fk_product_stringType1" FromRole="product" ToRole="stringtype" />
+    <NavigationProperty Name="productphotoes" Relationship="Guqin.Info.Data.Production.fk_ProductPhoto_product1" FromRole="product" ToRole="productphoto" />
   </EntityType>
   <EntityType Name="productphoto">
     <Key>
       <PropertyRef Name="idProductPhoto" />
     </Key>
     <Property Name="idProductPhoto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductPhoto1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="product_idPorduct" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="product" Relationship="Self.fk_ProductPhoto_product1" FromRole="productphoto" ToRole="product" />
+    <Property Name="ProductPhoto1" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="product" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="product1" Relationship="Guqin.Info.Data.Production.fk_ProductPhoto_product1" FromRole="productphoto" ToRole="product" />
   </EntityType>
   <EntityType Name="stringtype">
     <Key>
       <PropertyRef Name="idstringType" />
     </Key>
     <Property Name="idstringType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="stringType1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="products" Relationship="Self.fk_product_stringType1" FromRole="stringtype" ToRole="product" />
+    <Property Name="stringType1" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="products" Relationship="Guqin.Info.Data.Production.fk_product_stringType1" FromRole="stringtype" ToRole="product" />
   </EntityType>
   <EntityType Name="student">
     <Key>
       <PropertyRef Name="userAccount" />
     </Key>
     <Property Name="userAccount" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="user" Relationship="Self.fk_student_user1" FromRole="student" ToRole="user" />
+    <NavigationProperty Name="user" Relationship="Guqin.Info.Data.Production.fk_student_user1" FromRole="student" ToRole="user" />
+  </EntityType>
+  <EntityType Name="submajorcategory">
+    <Key>
+      <PropertyRef Name="idSubMajorCategory" />
+    </Key>
+    <Property Name="idSubMajorCategory" Type="Int32" Nullable="false" />
+    <Property Name="SubMajorCategoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MajerCategory" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="majors" Relationship="Guqin.Info.Data.Production.fk_Major_SubMajorCategory1" FromRole="submajorcategory" ToRole="major" />
+    <NavigationProperty Name="majorcategory" Relationship="Guqin.Info.Data.Production.fk_SubMajorCategory_MajerCategory1" FromRole="submajorcategory" ToRole="majorcategory" />
   </EntityType>
   <EntityType Name="teacher">
     <Key>
       <PropertyRef Name="userAccount" />
     </Key>
     <Property Name="userAccount" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="user" Relationship="Self.fk_teacher_user1" FromRole="teacher" ToRole="user" />
+    <NavigationProperty Name="user" Relationship="Guqin.Info.Data.Production.fk_teacher_user1" FromRole="teacher" ToRole="user" />
   </EntityType>
   <EntityType Name="user">
     <Key>
       <PropertyRef Name="userAccount" />
     </Key>
-    <Property Name="firstName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="lastName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="fullName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="firstName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="lastName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fullName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
     <Property Name="birthday" Type="DateTime" Nullable="false" />
-    <Property Name="headprotrait" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="headprotrait" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="userAccount" Type="Int32" Nullable="false" />
     <Property Name="expYear" Type="DateTime" Nullable="false" />
     <Property Name="major" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="major1" Relationship="Self.fk_user_major1" FromRole="user" ToRole="major" />
-    <NavigationProperty Name="student" Relationship="Self.fk_student_user1" FromRole="user" ToRole="student" />
-    <NavigationProperty Name="teacher" Relationship="Self.fk_teacher_user1" FromRole="user" ToRole="teacher" />
-    <NavigationProperty Name="certificates" Relationship="Self.fk_certificate_user1" FromRole="user" ToRole="certificate" />
-    <NavigationProperty Name="useraccount1" Relationship="Self.fk_user_useraccount1" FromRole="user" ToRole="useraccount" />
+    <NavigationProperty Name="major1" Relationship="Guqin.Info.Data.Production.fk_user_major1" FromRole="user" ToRole="major" />
+    <NavigationProperty Name="student" Relationship="Guqin.Info.Data.Production.fk_student_user1" FromRole="user" ToRole="student" />
+    <NavigationProperty Name="teacher" Relationship="Guqin.Info.Data.Production.fk_teacher_user1" FromRole="user" ToRole="teacher" />
+    <NavigationProperty Name="certificates" Relationship="Guqin.Info.Data.Production.fk_certificate_user1" FromRole="user" ToRole="certificate" />
+    <NavigationProperty Name="useraccount1" Relationship="Guqin.Info.Data.Production.fk_user_useraccount1" FromRole="user" ToRole="useraccount" />
   </EntityType>
   <EntityType Name="useraccount">
     <Key>
       <PropertyRef Name="idUserAccount" />
     </Key>
     <Property Name="idUserAccount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="registeredphonenum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="registeredphonenum" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="latitude" Type="Double" Nullable="false" />
     <Property Name="langtitude" Type="Double" Nullable="false" />
     <Property Name="accountType" Type="Int32" Nullable="false" />
-    <Property Name="contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contact" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="accountStatus" Type="Int32" Nullable="false" />
-    <Property Name="photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="accountstatu" Relationship="Self.fk_useraccount_accountStatus1" FromRole="useraccount" ToRole="accountstatus" />
-    <NavigationProperty Name="accounttype1" Relationship="Self.fk_useraccount_accounttype1" FromRole="useraccount" ToRole="accounttype" />
-    <NavigationProperty Name="business" Relationship="Self.fk_business_useraccount1" FromRole="useraccount" ToRole="business" />
-    <NavigationProperty Name="user" Relationship="Self.fk_user_useraccount1" FromRole="useraccount" ToRole="user" />
-    <NavigationProperty Name="acheivements" Relationship="Self.fk_acheivement_useraccount1" FromRole="useraccount" ToRole="acheivement" />
+    <Property Name="photo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="accountstatu" Relationship="Guqin.Info.Data.Production.fk_useraccount_accountStatus1" FromRole="useraccount" ToRole="accountstatu" />
+    <NavigationProperty Name="accounttype1" Relationship="Guqin.Info.Data.Production.fk_useraccount_accounttype1" FromRole="useraccount" ToRole="accounttype" />
+    <NavigationProperty Name="business" Relationship="Guqin.Info.Data.Production.fk_business_useraccount1" FromRole="useraccount" ToRole="business" />
+    <NavigationProperty Name="user" Relationship="Guqin.Info.Data.Production.fk_user_useraccount1" FromRole="useraccount" ToRole="user" />
+    <NavigationProperty Name="acheivements" Relationship="Guqin.Info.Data.Production.fk_acheivement_useraccount1" FromRole="useraccount" ToRole="acheivement" />
   </EntityType>
   <EntityType Name="acheivement">
     <Key>
@@ -137,12 +235,12 @@
       <PropertyRef Name="acheivedTime" />
       <PropertyRef Name="useraccount" />
     </Key>
-    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="desc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="acheivedTime" Type="DateTime" Nullable="false" />
     <Property Name="useraccount" Type="Int32" Nullable="false" />
     <Property Name="photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="useraccount1" Relationship="Self.fk_acheivement_useraccount1" FromRole="acheivement" ToRole="useraccount" />
+    <NavigationProperty Name="useraccount1" Relationship="Guqin.Info.Data.Production.fk_acheivement_useraccount1" FromRole="acheivement" ToRole="useraccount" />
   </EntityType>
   <EntityType Name="certificate">
     <Key>
@@ -150,17 +248,17 @@
       <PropertyRef Name="acheivedTime" />
       <PropertyRef Name="userAccount" />
     </Key>
-    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="desc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="acheivedTime" Type="DateTime" Nullable="false" />
     <Property Name="userAccount" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="user" Relationship="Self.fk_certificate_user1" FromRole="certificate" ToRole="user" />
+    <NavigationProperty Name="user" Relationship="Guqin.Info.Data.Production.fk_certificate_user1" FromRole="certificate" ToRole="user" />
   </EntityType>
   <Association Name="fk_useraccount_accountStatus1">
-    <End Role="accountstatus" Type="Self.accountstatu" Multiplicity="1" />
-    <End Role="useraccount" Type="Self.useraccount" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Production.accountstatu" Role="accountstatu" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Production.useraccount" Role="useraccount" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="accountstatus">
+      <Principal Role="accountstatu">
         <PropertyRef Name="idaccountStatus" />
       </Principal>
       <Dependent Role="useraccount">
@@ -169,8 +267,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_useraccount_accounttype1">
-    <End Role="accounttype" Type="Self.accounttype" Multiplicity="1" />
-    <End Role="useraccount" Type="Self.useraccount" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Production.accounttype" Role="accounttype" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Production.useraccount" Role="useraccount" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="accounttype">
         <PropertyRef Name="userTypeId" />
@@ -181,8 +279,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_business_businessType1">
-    <End Role="businesstype" Type="Self.businesstype" Multiplicity="1" />
-    <End Role="business" Type="Self.business" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Production.businesstype" Role="businesstype" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Production.business" Role="business" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="businesstype">
         <PropertyRef Name="idbusinessType" />
@@ -193,8 +291,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_business_useraccount1">
-    <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
-    <End Role="business" Type="Self.business" Multiplicity="0..1" />
+    <End Type="Guqin.Info.Data.Production.useraccount" Role="useraccount" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Guqin.Info.Data.Production.business" Role="business" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="useraccount">
         <PropertyRef Name="idUserAccount" />
@@ -205,20 +305,32 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_product_business1">
-    <End Role="business" Type="Self.business" Multiplicity="1" />
-    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Production.business" Role="business" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Production.product" Role="product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="business">
         <PropertyRef Name="userAccount" />
       </Principal>
       <Dependent Role="product">
-        <PropertyRef Name="business_userAccount" />
+        <PropertyRef Name="business" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Major_SubMajorCategory1">
+    <End Type="Guqin.Info.Data.Production.submajorcategory" Role="submajorcategory" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Production.major" Role="major" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="submajorcategory">
+        <PropertyRef Name="idSubMajorCategory" />
+      </Principal>
+      <Dependent Role="major">
+        <PropertyRef Name="SubMajorCategory" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_user_major1">
-    <End Role="major" Type="Self.major" Multiplicity="1" />
-    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Production.major" Role="major" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Production.user" Role="user" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="major">
         <PropertyRef Name="idMajor" />
@@ -228,33 +340,47 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_SubMajorCategory_MajerCategory1">
+    <End Type="Guqin.Info.Data.Production.majorcategory" Role="majorcategory" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Production.submajorcategory" Role="submajorcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="majorcategory">
+        <PropertyRef Name="idMajerCategory" />
+      </Principal>
+      <Dependent Role="submajorcategory">
+        <PropertyRef Name="MajerCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_product_stringType1">
-    <End Role="stringtype" Type="Self.stringtype" Multiplicity="1" />
-    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Production.stringtype" Role="stringtype" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Production.product" Role="product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="stringtype">
         <PropertyRef Name="idstringType" />
       </Principal>
       <Dependent Role="product">
-        <PropertyRef Name="stringType_idstringType" />
+        <PropertyRef Name="stringType" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_ProductPhoto_product1">
-    <End Role="product" Type="Self.product" Multiplicity="1" />
-    <End Role="productphoto" Type="Self.productphoto" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Production.product" Role="product" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Production.productphoto" Role="productphoto" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="product">
         <PropertyRef Name="idPorduct" />
       </Principal>
       <Dependent Role="productphoto">
-        <PropertyRef Name="product_idPorduct" />
+        <PropertyRef Name="product" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_student_user1">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="student" Type="Self.student" Multiplicity="0..1" />
+    <End Type="Guqin.Info.Data.Production.user" Role="user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Guqin.Info.Data.Production.student" Role="student" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="user">
         <PropertyRef Name="userAccount" />
@@ -265,8 +391,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_teacher_user1">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="teacher" Type="Self.teacher" Multiplicity="0..1" />
+    <End Type="Guqin.Info.Data.Production.user" Role="user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Guqin.Info.Data.Production.teacher" Role="teacher" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="user">
         <PropertyRef Name="userAccount" />
@@ -277,8 +405,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_certificate_user1">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="certificate" Type="Self.certificate" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Production.user" Role="user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Guqin.Info.Data.Production.certificate" Role="certificate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="user">
         <PropertyRef Name="userAccount" />
@@ -289,8 +419,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_user_useraccount1">
-    <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
-    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Type="Guqin.Info.Data.Production.useraccount" Role="useraccount" Multiplicity="1" />
+    <End Type="Guqin.Info.Data.Production.user" Role="user" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="useraccount">
         <PropertyRef Name="idUserAccount" />
@@ -301,8 +431,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_acheivement_useraccount1">
-    <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
-    <End Role="acheivement" Type="Self.acheivement" Multiplicity="*" />
+    <End Type="Guqin.Info.Data.Production.useraccount" Role="useraccount" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Guqin.Info.Data.Production.acheivement" Role="acheivement" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="useraccount">
         <PropertyRef Name="idUserAccount" />
@@ -312,72 +444,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ProductionEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="accountstatus" EntityType="Self.accountstatu" />
-    <EntitySet Name="accounttypes" EntityType="Self.accounttype" />
-    <EntitySet Name="businesses" EntityType="Self.business" />
-    <EntitySet Name="businesstypes" EntityType="Self.businesstype" />
-    <EntitySet Name="majors" EntityType="Self.major" />
-    <EntitySet Name="products" EntityType="Self.product" />
-    <EntitySet Name="productphotoes" EntityType="Self.productphoto" />
-    <EntitySet Name="stringtypes" EntityType="Self.stringtype" />
-    <EntitySet Name="students" EntityType="Self.student" />
-    <EntitySet Name="teachers" EntityType="Self.teacher" />
-    <EntitySet Name="users" EntityType="Self.user" />
-    <EntitySet Name="useraccounts" EntityType="Self.useraccount" />
-    <EntitySet Name="acheivements" EntityType="Self.acheivement" />
-    <EntitySet Name="certificates" EntityType="Self.certificate" />
-    <AssociationSet Name="fk_useraccount_accountStatus1" Association="Self.fk_useraccount_accountStatus1">
-      <End Role="accountstatus" EntitySet="accountstatus" />
-      <End Role="useraccount" EntitySet="useraccounts" />
-    </AssociationSet>
-    <AssociationSet Name="fk_useraccount_accounttype1" Association="Self.fk_useraccount_accounttype1">
-      <End Role="accounttype" EntitySet="accounttypes" />
-      <End Role="useraccount" EntitySet="useraccounts" />
-    </AssociationSet>
-    <AssociationSet Name="fk_business_businessType1" Association="Self.fk_business_businessType1">
-      <End Role="businesstype" EntitySet="businesstypes" />
-      <End Role="business" EntitySet="businesses" />
-    </AssociationSet>
-    <AssociationSet Name="fk_business_useraccount1" Association="Self.fk_business_useraccount1">
-      <End Role="useraccount" EntitySet="useraccounts" />
-      <End Role="business" EntitySet="businesses" />
-    </AssociationSet>
-    <AssociationSet Name="fk_product_business1" Association="Self.fk_product_business1">
-      <End Role="business" EntitySet="businesses" />
-      <End Role="product" EntitySet="products" />
-    </AssociationSet>
-    <AssociationSet Name="fk_user_major1" Association="Self.fk_user_major1">
-      <End Role="major" EntitySet="majors" />
-      <End Role="user" EntitySet="users" />
-    </AssociationSet>
-    <AssociationSet Name="fk_product_stringType1" Association="Self.fk_product_stringType1">
-      <End Role="stringtype" EntitySet="stringtypes" />
-      <End Role="product" EntitySet="products" />
-    </AssociationSet>
-    <AssociationSet Name="fk_ProductPhoto_product1" Association="Self.fk_ProductPhoto_product1">
-      <End Role="product" EntitySet="products" />
-      <End Role="productphoto" EntitySet="productphotoes" />
-    </AssociationSet>
-    <AssociationSet Name="fk_student_user1" Association="Self.fk_student_user1">
-      <End Role="user" EntitySet="users" />
-      <End Role="student" EntitySet="students" />
-    </AssociationSet>
-    <AssociationSet Name="fk_teacher_user1" Association="Self.fk_teacher_user1">
-      <End Role="user" EntitySet="users" />
-      <End Role="teacher" EntitySet="teachers" />
-    </AssociationSet>
-    <AssociationSet Name="fk_certificate_user1" Association="Self.fk_certificate_user1">
-      <End Role="user" EntitySet="users" />
-      <End Role="certificate" EntitySet="certificates" />
-    </AssociationSet>
-    <AssociationSet Name="fk_user_useraccount1" Association="Self.fk_user_useraccount1">
-      <End Role="useraccount" EntitySet="useraccounts" />
-      <End Role="user" EntitySet="users" />
-    </AssociationSet>
-    <AssociationSet Name="fk_acheivement_useraccount1" Association="Self.fk_acheivement_useraccount1">
-      <End Role="useraccount" EntitySet="useraccounts" />
-      <End Role="acheivement" EntitySet="acheivements" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

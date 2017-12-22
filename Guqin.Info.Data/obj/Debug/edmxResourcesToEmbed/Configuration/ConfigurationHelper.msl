@@ -4,31 +4,31 @@
     <EntitySetMapping Name="activities">
       <EntityTypeMapping TypeName="Guqin.Info.Data.Configuration.activity">
         <MappingFragment StoreEntitySet="activity">
-          <ScalarProperty Name="idActivities" ColumnName="idActivities" />
-          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="idProject" ColumnName="idProject" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="idActivities" ColumnName="idActivities" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="menus">
       <EntityTypeMapping TypeName="Guqin.Info.Data.Configuration.menu">
         <MappingFragment StoreEntitySet="menu">
-          <ScalarProperty Name="idMenu" ColumnName="idMenu" />
-          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
-          <ScalarProperty Name="submenu" ColumnName="submenu" />
-          <ScalarProperty Name="actionName" ColumnName="actionName" />
-          <ScalarProperty Name="controllerName" ColumnName="controllerName" />
-          <ScalarProperty Name="class" ColumnName="class" />
-          <ScalarProperty Name="itemOrder" ColumnName="itemOrder" />
           <ScalarProperty Name="idProject" ColumnName="idProject" />
+          <ScalarProperty Name="itemOrder" ColumnName="itemOrder" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="controllerName" ColumnName="controllerName" />
+          <ScalarProperty Name="actionName" ColumnName="actionName" />
+          <ScalarProperty Name="submenu" ColumnName="submenu" />
+          <ScalarProperty Name="menuName" ColumnName="menuName" />
+          <ScalarProperty Name="idMenu" ColumnName="idMenu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="projects">
       <EntityTypeMapping TypeName="Guqin.Info.Data.Configuration.project">
         <MappingFragment StoreEntitySet="project">
-          <ScalarProperty Name="idProject" ColumnName="idProject" />
           <ScalarProperty Name="projectName" ColumnName="projectName" />
+          <ScalarProperty Name="idProject" ColumnName="idProject" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

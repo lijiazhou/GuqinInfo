@@ -30,10 +30,12 @@ namespace Guqin.Info.Data.Production
         public DbSet<business> businesses { get; set; }
         public DbSet<businesstype> businesstypes { get; set; }
         public DbSet<major> majors { get; set; }
+        public DbSet<majorcategory> majorcategories { get; set; }
         public DbSet<product> products { get; set; }
         public DbSet<productphoto> productphotoes { get; set; }
         public DbSet<stringtype> stringtypes { get; set; }
         public DbSet<student> students { get; set; }
+        public DbSet<submajorcategory> submajorcategories { get; set; }
         public DbSet<teacher> teachers { get; set; }
         public DbSet<user> users { get; set; }
         public DbSet<useraccount> useraccounts { get; set; }

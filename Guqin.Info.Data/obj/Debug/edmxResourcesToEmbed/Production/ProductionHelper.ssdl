@@ -45,7 +45,7 @@ warning 6002: The table/view 'def.guqininfo.acheivement' does not have a primary
       <PropertyRef Name="idbusinessType" />
     </Key>
     <Property Name="idbusinessType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="buisnessType" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="businessType" Type="varchar" MaxLength="45" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -64,8 +64,16 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
     <Key>
       <PropertyRef Name="idMajor" />
     </Key>
-    <Property Name="idMajor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idMajor" Type="int" Nullable="false" />
     <Property Name="majorName" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="SubMajorCategory" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="majorcategory">
+    <Key>
+      <PropertyRef Name="idMajerCategory" />
+    </Key>
+    <Property Name="idMajerCategory" Type="int" Nullable="false" />
+    <Property Name="categoryName" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="product">
     <Key>
@@ -74,8 +82,8 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
     <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="madeTime" Type="date" Nullable="false" />
     <Property Name="deleted" Type="char" MaxLength="1" Nullable="false" />
-    <Property Name="business_userAccount" Type="int" Nullable="false" />
-    <Property Name="stringType_idstringType" Type="int" Nullable="false" />
+    <Property Name="business" Type="int" Nullable="false" />
+    <Property Name="stringType" Type="int" Nullable="false" />
     <Property Name="idPorduct" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="productphoto">
@@ -84,7 +92,7 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
     </Key>
     <Property Name="idProductPhoto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductPhoto" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="product_idPorduct" Type="int" Nullable="false" />
+    <Property Name="product" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="stringtype">
     <Key>
@@ -98,6 +106,14 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
       <PropertyRef Name="userAccount" />
     </Key>
     <Property Name="userAccount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="submajorcategory">
+    <Key>
+      <PropertyRef Name="idSubMajorCategory" />
+    </Key>
+    <Property Name="idSubMajorCategory" Type="int" Nullable="false" />
+    <Property Name="SubMajorCategoryName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MajerCategory" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="teacher">
     <Key>
@@ -135,7 +151,9 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
     <Property Name="photo" Type="varchar" MaxLength="200" Nullable="false" />
   </EntityType>
   <Association Name="fk_acheivement_useraccount1">
-    <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
+    <End Role="useraccount" Type="Self.useraccount" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="acheivement" Type="Self.acheivement" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="useraccount">
@@ -159,7 +177,9 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_business_useraccount1">
-    <End Role="useraccount" Type="Self.useraccount" Multiplicity="1" />
+    <End Role="useraccount" Type="Self.useraccount" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="business" Type="Self.business" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="useraccount">
@@ -171,7 +191,9 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_certificate_user1">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="certificate" Type="Self.certificate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="user">
@@ -179,6 +201,18 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
       </Principal>
       <Dependent Role="certificate">
         <PropertyRef Name="userAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Major_SubMajorCategory1">
+    <End Role="submajorcategory" Type="Self.submajorcategory" Multiplicity="1" />
+    <End Role="major" Type="Self.major" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="submajorcategory">
+        <PropertyRef Name="idSubMajorCategory" />
+      </Principal>
+      <Dependent Role="major">
+        <PropertyRef Name="SubMajorCategory" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -190,7 +224,7 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
         <PropertyRef Name="userAccount" />
       </Principal>
       <Dependent Role="product">
-        <PropertyRef Name="business_userAccount" />
+        <PropertyRef Name="business" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -202,7 +236,7 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
         <PropertyRef Name="idstringType" />
       </Principal>
       <Dependent Role="product">
-        <PropertyRef Name="stringType_idstringType" />
+        <PropertyRef Name="stringType" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -214,12 +248,14 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
         <PropertyRef Name="idPorduct" />
       </Principal>
       <Dependent Role="productphoto">
-        <PropertyRef Name="product_idPorduct" />
+        <PropertyRef Name="product" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_student_user1">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="student" Type="Self.student" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="user">
@@ -230,8 +266,22 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_SubMajorCategory_MajerCategory1">
+    <End Role="majorcategory" Type="Self.majorcategory" Multiplicity="1" />
+    <End Role="submajorcategory" Type="Self.submajorcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="majorcategory">
+        <PropertyRef Name="idMajerCategory" />
+      </Principal>
+      <Dependent Role="submajorcategory">
+        <PropertyRef Name="MajerCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_teacher_user1">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="teacher" Type="Self.teacher" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="user">
@@ -296,10 +346,12 @@ warning 6002: The table/view 'def.guqininfo.certificate' does not have a primary
     <EntitySet Name="business" EntityType="Self.business" Schema="guqininfo" store:Type="Tables" />
     <EntitySet Name="businesstype" EntityType="Self.businesstype" Schema="guqininfo" store:Type="Tables" />
     <EntitySet Name="major" EntityType="Self.major" Schema="guqininfo" store:Type="Tables" />
+    <EntitySet Name="majorcategory" EntityType="Self.majorcategory" Schema="guqininfo" store:Type="Tables" />
     <EntitySet Name="product" EntityType="Self.product" Schema="guqininfo" store:Type="Tables" />
     <EntitySet Name="productphoto" EntityType="Self.productphoto" Schema="guqininfo" store:Type="Tables" />
     <EntitySet Name="stringtype" EntityType="Self.stringtype" Schema="guqininfo" store:Type="Tables" />
     <EntitySet Name="student" EntityType="Self.student" Schema="guqininfo" store:Type="Tables" />
+    <EntitySet Name="submajorcategory" EntityType="Self.submajorcategory" Schema="guqininfo" store:Type="Tables" />
     <EntitySet Name="teacher" EntityType="Self.teacher" Schema="guqininfo" store:Type="Tables" />
     <EntitySet Name="user" EntityType="Self.user" Schema="guqininfo" store:Type="Tables" />
     <EntitySet Name="useraccount" EntityType="Self.useraccount" Schema="guqininfo" store:Type="Tables" />
@@ -336,6 +388,10 @@ FROM `certificate` AS `certificate`</DefiningQuery>
       <End Role="user" EntitySet="user" />
       <End Role="certificate" EntitySet="certificate" />
     </AssociationSet>
+    <AssociationSet Name="fk_Major_SubMajorCategory1" Association="Self.fk_Major_SubMajorCategory1">
+      <End Role="submajorcategory" EntitySet="submajorcategory" />
+      <End Role="major" EntitySet="major" />
+    </AssociationSet>
     <AssociationSet Name="fk_product_business1" Association="Self.fk_product_business1">
       <End Role="business" EntitySet="business" />
       <End Role="product" EntitySet="product" />
@@ -351,6 +407,10 @@ FROM `certificate` AS `certificate`</DefiningQuery>
     <AssociationSet Name="fk_student_user1" Association="Self.fk_student_user1">
       <End Role="user" EntitySet="user" />
       <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="fk_SubMajorCategory_MajerCategory1" Association="Self.fk_SubMajorCategory_MajerCategory1">
+      <End Role="majorcategory" EntitySet="majorcategory" />
+      <End Role="submajorcategory" EntitySet="submajorcategory" />
     </AssociationSet>
     <AssociationSet Name="fk_teacher_user1" Association="Self.fk_teacher_user1">
       <End Role="user" EntitySet="user" />
