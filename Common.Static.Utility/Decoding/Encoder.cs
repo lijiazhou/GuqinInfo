@@ -1,4 +1,4 @@
-﻿using Common.Static.Utility.Model;
+﻿using Common.Static.Utility.Decoding.Model;
 using System;
 using System.Web.Security;
 

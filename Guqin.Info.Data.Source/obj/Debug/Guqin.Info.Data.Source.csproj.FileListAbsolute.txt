@@ -1,0 +1,4 @@
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data.Source\bin\Debug\Guqin.Info.Data.Source.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data.Source\bin\Debug\Guqin.Info.Data.Source.pdb
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data.Source\obj\Debug\Guqin.Info.Data.Source.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Data.Source\obj\Debug\Guqin.Info.Data.Source.pdb

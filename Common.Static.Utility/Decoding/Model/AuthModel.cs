@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace Common.Static.Utility.Model
+namespace Common.Static.Utility.Decoding.Model
 {
     public class AuthModel
     {

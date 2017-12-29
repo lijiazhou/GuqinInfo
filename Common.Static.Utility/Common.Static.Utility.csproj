@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Decoding\Decoder.cs" />
     <Compile Include="Decoding\Encoder.cs" />
-    <Compile Include="Model\AuthModel.cs" />
+    <Compile Include="Decoding\Model\AuthModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

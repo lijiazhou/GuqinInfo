@@ -4,7 +4,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Common.Static.Settings.Const;
 using Common.Static.Utility.Decoding;
-using Common.Static.Utility.Model;
+using Common.Static.Utility.Decoding.Model;
 
 namespace Guqin.Info.MVC.Controllers
 {
