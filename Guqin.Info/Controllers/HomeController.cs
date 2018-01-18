@@ -4,6 +4,7 @@ using Guqin.Info.Data.Configuration.ConfigurationModel.CfgActivity;
 
 namespace Guqin.Info.MVC.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : BaseController
     {
         public HomeController() : base()
@@ -11,15 +12,12 @@ namespace Guqin.Info.MVC.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
 
-
         [HttpGet]
-        [AllowAnonymous]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -27,7 +25,6 @@ namespace Guqin.Info.MVC.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

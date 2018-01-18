@@ -17,6 +17,12 @@ namespace Guqin.Info.MVC
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "UnAuth",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
+            );
         }
     }
 }

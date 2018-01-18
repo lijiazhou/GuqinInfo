@@ -57,7 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HtmlExtension\ButtonExtension\ButtonExtension.cs" />
+    <Compile Include="HtmlExtension\ExtensionBase\ExtensionBase.cs" />
+    <Compile Include="HtmlExtension\ExtensionBase\HtmlExtentionAttribute.cs" />
     <Compile Include="HtmlExtension\ImageTagExtension\ImageExtension.cs" />
+    <Compile Include="HtmlExtension\InputExtension\InputExtension.cs" />
+    <Compile Include="HtmlExtension\SpanExtension\SpanExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UtilityExtesion\ObjectExtension\MethodExtension.cs" />
     <Compile Include="UtilityExtesion\ObjectExtension\ToDictionaryExtension.cs" />

@@ -7,23 +7,24 @@ using Common.Static.Settings.Const;
 using Common.Static.Utility.Decoding.Model;
 using Common.Static.Utility.Decoding;
 
-namespace Guqin.Info.MVC.Filters
+namespace Guqin.Info.MVC.Attributes
 {
-    public class AuthenticationAttribute : AuthorizeAttribute
+    public class CookieAuthAttribute : AuthorizeAttribute
     {
         private HttpCookieCollection httpCookies { get { return HttpContext.Current.Request.Cookies; } }
 
-        public override void OnAuthorization(AuthorizationContext filterContext)
+        public override void OnAuthorization(AuthorizationContext attributeContext)
         {
-            this.ExecuteAuthValidation(filterContext);
+            base.OnAuthorization(attributeContext);
+            this.ExecuteAuthValidation(attributeContext);
         }
 
-        private void ExecuteAuthValidation(AuthorizationContext filterContext)
+        private void ExecuteAuthValidation(AuthorizationContext attributeContext)
         {
             HttpCookie authCookie = this.httpCookies[KeyConst.USER_TOKEN_KEY];
             if (authCookie == null)
             {
-                this.RedirectToLogin(filterContext);
+                this.RedirectToLogin(attributeContext);
                 return;
             }
 
@@ -32,10 +33,10 @@ namespace Guqin.Info.MVC.Filters
 
             if (!this.ValidateToken(authTicket, authModel))
             {
-                this.RedirectToLogin(filterContext);
+                this.RedirectToLogin(attributeContext);
                 return;
             }
-           
+
             //database check
         }
 
@@ -54,17 +55,21 @@ namespace Guqin.Info.MVC.Filters
             return true;
         }
 
-        private void RedirectToLogin(AuthorizationContext filterContext)
+        private void RedirectToLogin(AuthorizationContext attributeContext)
         {
-            filterContext.Result = new RedirectToRouteResult(
-                                    "Login",
-                                    new RouteValueDictionary {
-                                        {
-                                            "from",
-                                            filterContext.HttpContext.Request.Url.ToString()
-                                        } });
+            String url = attributeContext.HttpContext.Request.Url.ToString();
+
+            attributeContext.Result = new RedirectToRouteResult(this.CreateRouteValueDictionary("Account", "Login"));
         }
 
-       
+        private RouteValueDictionary CreateRouteValueDictionary(String controllerName, String actionName)
+        {
+            return new RouteValueDictionary(
+            new {
+                controller = controllerName,
+                action = actionName
+            });
+        }
+
     }
 }

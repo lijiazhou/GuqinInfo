@@ -7,6 +7,7 @@ namespace Common.Static.Extension.UtilityExtesion
 {
     public static class ClassExtension
     {
+        
         public static String GetMethodName(this Object obj)
         {
             MethodBase method = new StackFrame(1).GetMethod();
