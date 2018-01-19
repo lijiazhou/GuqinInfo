@@ -58,16 +58,16 @@ namespace Guqin.Info.MVC.Attributes
         private void RedirectToLogin(AuthorizationContext attributeContext)
         {
             String url = attributeContext.HttpContext.Request.Url.ToString();
-
-            attributeContext.Result = new RedirectToRouteResult(this.CreateRouteValueDictionary("Account", "Login"));
+            attributeContext.Result = new RedirectToRouteResult(this.CreateRouteValueDictionary("Account", "Login", url));
         }
 
-        private RouteValueDictionary CreateRouteValueDictionary(String controllerName, String actionName)
+        private RouteValueDictionary CreateRouteValueDictionary(String controllerName, String actionName, String url)
         {
             return new RouteValueDictionary(
             new {
                 controller = controllerName,
-                action = actionName
+                action = actionName,
+                returnUrl = url
             });
         }
 

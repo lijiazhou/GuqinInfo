@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using Guqin.Info.Data.Configuration.ConfigurationModel.CfgActivity;
+using Guqin.Info.MVC.Attributes;
 
 namespace Guqin.Info.MVC.Controllers
 {
@@ -18,6 +19,7 @@ namespace Guqin.Info.MVC.Controllers
         }
 
         [HttpGet]
+        [CookieAuthAttribute]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

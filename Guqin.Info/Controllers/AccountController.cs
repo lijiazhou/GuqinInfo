@@ -9,8 +9,10 @@ namespace Guqin.Info.MVC.Controllers
     {
         // GET: Login
         [HttpGet]
-        public ActionResult Login()
+        public ActionResult Login(String returnUrl)
         {
+            if()
+
             return View();
         }
 
