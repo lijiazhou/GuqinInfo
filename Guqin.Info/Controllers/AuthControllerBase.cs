@@ -5,18 +5,20 @@ using System.Web.Security;
 using Common.Static.Settings.Const;
 using Common.Static.Utility.Decoding;
 using Common.Static.Utility.Decoding.Model;
+using Guqin.Info.MVC.Attributes;
 
 namespace Guqin.Info.MVC.Controllers
 {
+    [CookieAuthAttribute]
     public abstract class AuthControllerBase : BaseController
     {
-
         public AuthControllerBase() : base()
         {           
         }
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
+            base.OnActionExecuted(filterContext);
             HttpCookie authCookie = this.CurrentContext.Request.Cookies[KeyConst.USER_TOKEN_KEY];
             FormsAuthenticationTicket authTicket = Decoder.DecodeCookie(authCookie);
             AuthModel authModel = Decoder.DecodeAuthTicket(authTicket);
@@ -28,9 +30,7 @@ namespace Guqin.Info.MVC.Controllers
 
         private void ClearLogin(HttpContext httpContext)
         {
-            httpContext.Response.Cookies.Add(new HttpCookie(
-                KeyConst.USER_TOKEN_KEY,
-                FormsAuthentication.Encrypt(GenerateExpiryToken())));
+            httpContext.Response.Cookies.Remove(KeyConst.USER_TOKEN_KEY);
         }
 
         private FormsAuthenticationTicket GenerateExpiryToken()

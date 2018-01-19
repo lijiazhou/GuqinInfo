@@ -11,8 +11,6 @@ namespace Guqin.Info.MVC.Controllers
         [HttpGet]
         public ActionResult Login(String returnUrl)
         {
-            if()
-
             return View();
         }
 
