@@ -1,4 +1,3 @@
-D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Extension\obj\Debug\Common.Static.Extension.csprojResolveAssemblyReference.cache
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Extension\bin\Debug\Common.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Extension\bin\Debug\Common.pdb
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Guqin.Info.Extension\bin\Debug\System.Web.Mvc.dll

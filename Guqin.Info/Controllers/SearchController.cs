@@ -4,6 +4,7 @@ using Guqin.Info.Data.Configuration.ConfigurationModel.CfgActivity;
 
 namespace Guqin.Info.MVC.Controllers
 {
+    [AllowAnonymous]
     public class SearchController : BaseController
     {
         [HttpPost]

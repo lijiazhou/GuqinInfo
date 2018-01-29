@@ -5,11 +5,12 @@ using System.Web.Security;
 using Common.Static.Settings.Const;
 using Common.Static.Utility.Decoding;
 using Common.Static.Utility.Decoding.Model;
-using Guqin.Info.MVC.Attributes;
+using Common.Static.Utility.Attributes;
 
 namespace Guqin.Info.MVC.Controllers
 {
-    [CookieAuthAttribute]
+  
+    //[CookieAuth]
     public abstract class AuthControllerBase : BaseController
     {
         public AuthControllerBase() : base()

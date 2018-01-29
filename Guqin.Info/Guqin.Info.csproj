@@ -150,7 +150,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Attributes\CookieAuthAttribute .cs" />
     <Compile Include="Attributes\ErrorAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

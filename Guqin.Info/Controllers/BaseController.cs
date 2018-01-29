@@ -12,10 +12,10 @@ namespace Guqin.Info.MVC.Controllers
 {
     public abstract class BaseController : Controller
     {
-        private static DataContext _dataContext { set; get; }
-        private static ProjectConfig _projectConf { set; get; }
-        private static MenuConfig _mainMenuConf { set; get; }
-        private static NameValueCollection _appSetting { get { return ConfigurationManager.AppSettings; } }
+        private DataContext _dataContext { set; get; }
+        private ProjectConfig _projectConf { set; get; }
+        private MenuConfig _mainMenuConf { set; get; }
+        private NameValueCollection _appSetting { get { return ConfigurationManager.AppSettings; } }
         protected DataContext DataContext { get { return _dataContext; } }
         protected ProjectConfig ProjectConf { get { return _projectConf; } }
         protected NameValueCollection AppSetting { get { return _appSetting; } }
@@ -34,16 +34,12 @@ namespace Guqin.Info.MVC.Controllers
 
         private void InitializeDataContext()
         {
-            if (_dataContext == null)
-                _dataContext = new DataContext();
+            this._dataContext = new DataContext();
         }
 
         private void InitializeProjectConf()
         {
-            if (_projectConf != null)
-                return;
-
-            _projectConf = ProjectConfig.
+            this._projectConf = ProjectConfig.
                 Create(
                 Convert.ToInt32(AppSetting["ProjectID"]), 
                 this.DataContext.ConfigurationEntities);
@@ -51,11 +47,10 @@ namespace Guqin.Info.MVC.Controllers
 
         private void InitializeMenuConf()
         {
-            if(_mainMenuConf == null)
-                _mainMenuConf = MenuConfig.
-                    Create(
-                    this.ProjectConf.ProjectID, 
-                    this.DataContext.ConfigurationEntities);
+            _mainMenuConf = MenuConfig.
+                Create(
+                this.ProjectConf.ProjectID, 
+                this.DataContext.ConfigurationEntities);
         }
 
         private void SetPageConf()

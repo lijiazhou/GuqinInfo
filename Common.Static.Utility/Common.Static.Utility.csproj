@@ -33,6 +33,9 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,11 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\AuthAttributes\CookieAuthAttribute.cs" />
+    <Compile Include="Attributes\AuthAttributes\IAuthCheck.cs" />
+    <Compile Include="Attributes\LayoutAttributes\LayoutInjectionAttribute.cs" />
     <Compile Include="Decoding\Decoder.cs" />
     <Compile Include="Decoding\Encoder.cs" />
     <Compile Include="Decoding\Model\AuthModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common.Static.Settings\Common.Static.Settings.csproj">
+      <Project>{d3056f26-0390-4a61-b0cd-af21a38cd63f}</Project>
+      <Name>Common.Static.Settings</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

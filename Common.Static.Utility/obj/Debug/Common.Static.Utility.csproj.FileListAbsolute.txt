@@ -1,4 +1,9 @@
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\bin\Debug\Common.Static.Utility.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\bin\Debug\Common.Static.Utility.pdb
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\bin\Debug\Common.Static.Settings.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\bin\Debug\System.Web.Mvc.dll
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\bin\Debug\Common.Static.Settings.pdb
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\bin\Debug\System.Web.Mvc.xml
+D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\obj\Debug\Common.Static.Utility.csprojResolveAssemblyReference.cache
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\obj\Debug\Common.Static.Utility.dll
 D:\WorkStation\Visual Studio Projects\Guqin.Info\Common.Static.Utility\obj\Debug\Common.Static.Utility.pdb

@@ -10,9 +10,8 @@ namespace Common.Static.Utility.Decoding.Model
         public String Password { get; set; }
         public Int32 ID { get; set; }
         public String UserType { get; set; }
-        public Boolean IsValid { get { return this.isValid; } }
-        private Boolean isValid;
-
+        public Boolean IsValid { private set; get; }
+        
 
         public AuthModel(string token)
         {
@@ -20,7 +19,7 @@ namespace Common.Static.Utility.Decoding.Model
             {             
                 if (!Regex.IsMatch(token, pattern))
                 {
-                    this.isValid = false;
+                    this.IsValid = false;
                     return;
                 }
 
@@ -29,10 +28,10 @@ namespace Common.Static.Utility.Decoding.Model
                 this.Password = tokenSplits[1].Split(':')[1];
                 this.ID = Convert.ToInt32(tokenSplits[2].Split(':')[1]);
                 this.UserType = tokenSplits[3].Split(':')[1];
-                this.isValid = true;
+                this.IsValid = true;
             } catch
             {
-                this.isValid = false;
+                this.IsValid = false;
             }
         }
 

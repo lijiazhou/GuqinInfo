@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Web.Mvc;
 using Guqin.Info.Data.Configuration.ConfigurationModel.CfgActivity;
-using Guqin.Info.MVC.Attributes;
+using Common.Static.Utility.Attributes;
 
 namespace Guqin.Info.MVC.Controllers
 {
     [AllowAnonymous]
-    public class HomeController : BaseController
+    public partial class HomeController : BaseController
     {
         public HomeController() : base()
         {
@@ -19,7 +19,6 @@ namespace Guqin.Info.MVC.Controllers
         }
 
         [HttpGet]
-        [CookieAuthAttribute]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
